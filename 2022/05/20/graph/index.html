@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="基本概念  有向图。边是顶点的无序对的图。 无向图 简单图。不存在重复边，不存在顶点到自身的边的图。数据结构仅讨论简单图。 多重图。 完全图（简单完全图）。对于无向图，任意两个顶点之间都存在边，即 \(e &#x3D; C_n^2\)； 有向完全图。 对于有向图，任意两顶点之间都存在方向相反的两条弧，即 \(e &#x3D; 2C_n^2\)。 子图。对于 \(G(v,e)\) 和 \(G&#39;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS&#x2F;Graph">
+<meta property="og:url" content="http://example.com/2022/05/20/graph/index.html">
+<meta property="og:site_name" content="lh1705">
+<meta property="og:description" content="基本概念  有向图。边是顶点的无序对的图。 无向图 简单图。不存在重复边，不存在顶点到自身的边的图。数据结构仅讨论简单图。 多重图。 完全图（简单完全图）。对于无向图，任意两个顶点之间都存在边，即 \(e &#x3D; C_n^2\)； 有向完全图。 对于有向图，任意两顶点之间都存在方向相反的两条弧，即 \(e &#x3D; 2C_n^2\)。 子图。对于 \(G(v,e)\) 和 \(G&#39;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/prim.png">
+<meta property="og:image" content="http://example.com/images/kruskal.png">
+<meta property="og:image" content="http://example.com/images/graph-photo.png">
+<meta property="og:image" content="http://example.com/images/floyd.png">
+<meta property="og:image" content="http://example.com/images/expr.png">
+<meta property="og:image" content="http://example.com/images/AOV.png">
+<meta property="og:image" content="http://example.com/images/关键路径.png">
+<meta property="article:published_time" content="2022-05-20T05:07:07.780Z">
+<meta property="article:modified_time" content="2022-05-20T05:07:07.781Z">
+<meta property="article:author" content="lh1705">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/prim.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>DS/Graph</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2022/05/19/hexo/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/20/graph/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/20/graph/&text=DS/Graph"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/20/graph/&is_video=false&description=DS/Graph"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS/Graph&body=Check out this article: http://example.com/2022/05/20/graph/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/20/graph/&name=DS/Graph&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/20/graph/&t=DS/Graph"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">2.</span> <span class="toc-text">基本性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-number"></span> <span class="toc-text">图的储存结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="toc-number">1.</span> <span class="toc-text">邻接矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">储存结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">邻接表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-1"><span class="toc-number">2.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84-1"><span class="toc-number">2.2.</span> <span class="toc-text">储存结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%AD%97%E9%93%BE%E8%A1%A8%E6%B3%95-%E6%9C%89%E5%90%91%E5%9B%BE"><span class="toc-number">3.</span> <span class="toc-text">十字链表法 (有向图）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%A4%9A%E9%87%8D%E8%A1%A8%E6%97%A0%E5%90%91%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">邻接多重表（无向图）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number"></span> <span class="toc-text">图的遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-bfs"><span class="toc-number">1.</span> <span class="toc-text">广度优先搜索 BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E6%83%B3"><span class="toc-number">1.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">1.3.</span> <span class="toc-text">性能分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-dfs"><span class="toc-number">2.</span> <span class="toc-text">深度优先搜索 DFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E6%83%B3-1"><span class="toc-number">2.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">2.2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90-1"><span class="toc-number">2.3.</span> <span class="toc-text">性能分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">图的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">最小生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prim-%E7%AE%97%E6%B3%95%E6%97%A0%E5%90%91%E7%BD%91"><span class="toc-number">1.1.</span> <span class="toc-text">Prim 算法（无向网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kruskal-%E7%AE%97%E6%B3%95%E6%97%A0%E5%90%91%E7%BD%91"><span class="toc-number">1.2.</span> <span class="toc-text">Kruskal 算法（无向网）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">2.</span> <span class="toc-text">最短路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dijkstra-%E7%AE%97%E6%B3%95-%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">2.1.</span> <span class="toc-text">Dijkstra 算法 （单源最短路径）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#floyd-%E7%AE%97%E6%B3%95%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">2.2.</span> <span class="toc-text">Floyd 算法（每对顶点最短路径）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BEdag%E6%8F%8F%E8%BF%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">有向无环图(DAG)描述表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-number">4.</span> <span class="toc-text">拓扑排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aov-%E7%BD%91"><span class="toc-number">4.1.</span> <span class="toc-text">AOV 网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F-1"><span class="toc-number">4.2.</span> <span class="toc-text">拓扑排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="toc-number">5.</span> <span class="toc-text">关键路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aoe-%E7%BD%91"><span class="toc-number">5.1.</span> <span class="toc-text">AOE 网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84-1"><span class="toc-number">5.2.</span> <span class="toc-text">关键路径</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        DS/Graph
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">lh1705</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-05-20T05:07:07.780Z" itemprop="datePublished">2022-05-20</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="基本概念">基本概念</h2>
+<ul>
+<li>有向图。边是顶点的无序对的图。</li>
+<li>无向图</li>
+<li>简单图。不存在重复边，不存在顶点到自身的边的图。数据结构仅讨论简单图。</li>
+<li>多重图。</li>
+<li>完全图（简单完全图）。对于无向图，任意两个顶点之间都存在边，即 <span
+class="math inline">\(e = C_n^2\)</span>；</li>
+<li>有向完全图。 对于有向图，任意两顶点之间都存在方向相反的两条弧，即
+<span class="math inline">\(e = 2C_n^2\)</span>。</li>
+<li>子图。对于 <span class="math inline">\(G(v,e)\)</span> 和 <span
+class="math inline">\(G&#39;(v&#39;,e&#39;)\)</span>，<span
+class="math inline">\(v&#39;\)</span> 是 <span
+class="math inline">\(v\)</span> 的子集，且 <span
+class="math inline">\(e&#39;\)</span> 是 <span
+class="math inline">\(e\)</span> 的子集，则 <span
+class="math inline">\(G&#39;\)</span> 是 <span
+class="math inline">\(G\)</span> 的子图。</li>
+<li>生成子图。当 <span class="math inline">\(v(g&#39;) = v(g)\)</span>
+（顶点集合相等）时，<span class="math inline">\(g&#39;\)</span> 是 <span
+class="math inline">\(g\)</span> 的生成子图。</li>
+<li>连通。无向图中，若从顶点 v 到顶点 w 有路径存在，则 v 和 w
+连通的。</li>
+<li>连通图。任意两顶点间连通（有路径）的图。</li>
+<li>连通分量。无向图的极大连通子图。</li>
+<li>极大连通子图。既保持图连通又<strong>包含其所有边</strong>的子图。</li>
+<li>极小连通子图。既保持图连通又使得<strong>边数最少</strong>的子图。</li>
+<li>强连通。有向图中，若从顶点 v 到 w 间和从顶点 w 到 v 间都有路径，则 v
+和 w 是强连通的。</li>
+<li>强连通图。图中任何一对顶点都是强连通。</li>
+<li>强连通分量。有向图的极大连通子图。</li>
+<li>生成树。连通图中包含全部顶点的一个极小连通子图。</li>
+<li>生成森林。非连通图汇总，连通分量的生成树构成了非连通图的生成森林。</li>
+<li>顶点度。依附于顶点的边数。</li>
+<li>入度。有向图中，以顶点为终点的有向边的数目。</li>
+<li>出度。有向图中，以顶点为起点的有向边的数目。</li>
+<li>边的权。图上每条边上标上某种含义的数值，该数值称为该边的权值。</li>
+<li>网（带权图）。边上带权值的图。</li>
+<li>稀疏图。边数很少的图。一般满足 <span
+class="math inline">\(|E|&lt;|V|log|V|\)</span></li>
+<li>稠密图。边数很多的图。</li>
+<li>路径。顶点 v 到 w 的顶点序列。</li>
+<li>路径长度。路径上边的数目。</li>
+<li>回路。第一个顶点与最后一个顶点相同的路径。</li>
+<li>简单路径。在路径序列中，顶点不重复出现的路径。</li>
+<li>简单回路。除第一个顶点和最后一个顶点外，其余顶点不重复出现的回路。</li>
+<li>距离。如果 v 到 w 最短路径存在，则此路径的长度称为 v 到 w
+的距离。若不存在， 则该距离为 <span
+class="math inline">\(\infty\)</span></li>
+<li>有向树。一个顶点的入度为 0、其余顶点的入度均为 1
+的有向图。（结点从上到下 的树）</li>
+</ul>
+<h2 id="基本性质">基本性质</h2>
+<ul>
+<li>一个有 n 个顶点的图，连通无向图的边至少为 <span
+class="math inline">\(n - 1\)</span>（树）个，强连通有向图的 边至少有
+n（环）个。</li>
+<li>一个有 n 个顶点，n 条边的的无向图，一定是环。</li>
+<li>一个有 n 条边的非连通无向图，顶点最少的情况是：一个完全图 +
+一个独立顶点<br />
+设此时图的顶点数为 m，则有 <span class="math inline">\(n = C_{m-1}^2 +
+1\)</span></li>
+<li>一个有 n 个顶点、e 条边的无向图，有 <span
+class="math display">\[\sum_{i=1}^{n}TD(V_i) = 2e\]</span></li>
+<li>一个有 n
+个顶点的无向图，要保证图在任何情况下都是连通的，则边数最少为 <span
+class="math inline">\(C_{n-1}^2 + 1\)</span></li>
+<li>一个有 n 个顶点的有向图，每个顶点的度最为 <span
+class="math inline">\(2(n-1)\)</span></li>
+<li>一个含有 n 各顶点，n - 1
+条边的图，可能为生成树、不连通、构成环路。</li>
+</ul>
+<h1 id="图的储存结构">图的储存结构</h1>
+<h2 id="邻接矩阵">邻接矩阵</h2>
+<h3 id="特点">特点</h3>
+<ul>
+<li>无向图的邻接矩阵对称矩阵（并且唯一）。</li>
+<li>有 n 个顶点，e 条边的无向图的邻接矩阵中，非零元素个数为 <span
+class="math inline">\(2e\)</span>(度数 == 边数)， 零元素个数为 <span
+class="math inline">\(n^2 - 2e\)</span></li>
+<li>n 个顶点的无向图的邻接表最多有 <span
+class="math inline">\(2C_{n}^{2}\)</span> 个边表结点。(对称矩阵）</li>
+<li>有向图的邻接表中有奇数个边表结点。</li>
+</ul>
+<h3 id="储存结构">储存结构</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxVertexNum 50</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    VertexType Vex[MaxVertexNum]; <span class="comment">// 顶点表</span></span><br><span class="line">    VertexType Edge[MaxVertexNum][MaxVertexNum] <span class="comment">// 边表</span></span><br><span class="line">    <span class="type">int</span> vexnum, edgenum;</span><br><span class="line">&#125;MGraph;</span><br><span class="line"></span><br><span class="line">A - B    - <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>    A B C D</span><br><span class="line">  \ !    <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>    <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">D - C    <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"> UDG     <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">         <span class="number">3</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">A &gt; B    - <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>    A B C D</span><br><span class="line">    v    <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> &amp; &amp;    <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">D &lt; C    <span class="number">1</span> &amp; <span class="number">0</span> <span class="number">1</span> &amp;  </span><br><span class="line"> DG      <span class="number">2</span> &amp; &amp; <span class="number">0</span> <span class="number">1</span></span><br><span class="line">         <span class="number">3</span> &amp; &amp; &amp; <span class="number">0</span></span><br><span class="line"></span><br><span class="line">有向图的邻接矩阵为三角矩阵（沿主轴线对称）</span><br><span class="line">无向图中顶点到自身为 <span class="number">0</span>，顶点间无<span class="string">&quot;直接路径&quot;</span>为 <span class="number">0</span>，顶点间有<span class="string">&quot;直接路径&quot;</span>为 <span class="number">1</span></span><br><span class="line">有向图中顶点到自身为 <span class="number">0</span>，顶点间无<span class="string">&quot;直接路径&quot;</span>为 &amp;（无穷大），顶点间有<span class="string">&quot;直接路径&quot;</span>为 <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>NOTE</code>
+邻接矩阵的储存结构中的边表参与操作（直接使用数组下标），顶点表的作用仅仅
+是通过下标直接获取顶点。(下标与顶点一一对应）</p>
+<h2 id="邻接表">邻接表</h2>
+<h3 id="特点-1">特点</h3>
+<ul>
+<li>无向图的邻接表空间复杂度 <span
+class="math inline">\(O(|V|+2|E|)\)</span></li>
+<li>有向图的邻接表空间复杂度 <span
+class="math inline">\(O(|V|+|E|)\)</span></li>
+<li>对于稀疏图，极大节省存储空间</li>
+<li>图的邻接表并不唯一</li>
+<li>有向图的邻接表中，求给定顶点的入度为 <span
+class="math inline">\(O(e)\)</span>，出度则需要遍历整个邻接表。（也
+可采用逆序邻接表）</li>
+</ul>
+<h3 id="储存结构-1">储存结构</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxVertexNum 50</span></span><br><span class="line"><span class="keyword">typedef</span> strcut ArcNode &#123; <span class="comment">// 边表结构 (相当于链表）</span></span><br><span class="line">    VertexType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ArcNode</span>* next;</span><br><span class="line">&#125;ArcNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">VNode</span> &#123; <span class="comment">// 顶点结构（相当于头结点，指向链表首节点）</span></span><br><span class="line">    VertexType data;</span><br><span class="line">    ArcNode* first;</span><br><span class="line">&#125;VNode, AdjList[MaxVertexNum];</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    AdjList vertex;</span><br><span class="line">    <span class="type">int</span> vertexnum, arcnum;</span><br><span class="line">&#125;ALGraph;</span><br><span class="line"></span><br><span class="line">A --- B          A -&gt; B -&gt; C</span><br><span class="line">   \  |          B -&gt; A -&gt; C</span><br><span class="line">D --- C          C -&gt; A -&gt; D</span><br><span class="line">  UG             D -&gt; C </span><br><span class="line"></span><br><span class="line">A --&gt; B          A -&gt; B</span><br><span class="line">      ↓          B -&gt; C</span><br><span class="line">D &lt;-- C          C -&gt; D</span><br><span class="line">   G   </span><br></pre></td></tr></table></figure>
+<h2 id="十字链表法-有向图">十字链表法 (有向图）</h2>
+<h2 id="邻接多重表无向图">邻接多重表（无向图）</h2>
+
+<h1 id="图的遍历">图的遍历</h1>
+<h2 id="广度优先搜索-bfs">广度优先搜索 BFS</h2>
+<h3 id="思想">思想</h3>
+<ul>
+<li>首先访问起始顶点 <span
+class="math inline">\([a]\)</span>，接着依次访问 <span
+class="math inline">\([a]\)</span> 的各个未被访问过的邻接点 <span
+class="math inline">\([b-c]\)</span></li>
+<li>然后依次访问 <span class="math inline">\([b-c]\)</span>
+的所有未被访问的邻接顶点 <span
+class="math inline">\([d-e-f-g]\)</span>（<strong>之前的顶点 a 已经
+被访问</strong>）</li>
+<li>再从这些访问过的顶点出发，依次访问它们所有未被访问过的邻接顶点，直至图中所有顶点都被访问过为止。</li>
+<li>若此时图中尚有顶点未被访问 <span
+class="math inline">\([h-i-j]\)</span>，则另选图中一个未被访问的顶点作为始点，
+重复上述过程，直至图中所有顶点都被访问到为止。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">        a</span><br><span class="line">      /   \</span><br><span class="line">     b     c           h</span><br><span class="line">    / \   / \         / \</span><br><span class="line">   d   e f   g       i   j</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 为什么是依次访问所有未被访问的邻接点？</span><br><span class="line"></span><br><span class="line">答：因为图的储存结构是邻接表或邻接矩阵，像在无向图的邻接表结构中，顶点 a 的邻</span><br><span class="line">接点是 b，顶点 b 的邻接点是 a。这样导致在访问 a 的邻接点 b 后，再访问 b 的邻</span><br><span class="line">接点时，a 将重复访问。因为每个结点只能访问一次，故要排除已经访问的顶点。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 为什么还有顶点未曾访问？</span><br><span class="line">答:因为图有可能为非连通图，如上图所示，非联通图不是任意两个顶点之间有路径。</span><br></pre></td></tr></table></figure>
+<h3 id="实现">实现</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 邻接矩阵</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxVertexNum 50</span></span><br><span class="line"><span class="type">bool</span> visited[MaxVertexNum];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BFSTraverse</span><span class="params">(Graph &amp;G)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; ++i) &#123; <span class="comment">// 初始化 visited 数组</span></span><br><span class="line">        visited[i] = False;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">InitQueue</span>(Q); <span class="comment">// 初始化队列，因为每次 BFS 都用同一个队列</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited[i])  </span><br><span class="line">            <span class="built_in">BFS</span>(G, i); <span class="comment">// i = 0 访问，就意味着 G.vertex[i] 已经访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BFS</span><span class="params">(Graph &amp;G, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">visit</span>(v); visited[v] = True;</span><br><span class="line">    <span class="built_in">EnQueue</span>(Q, v);</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">QueueEmpty</span>(Q)) &#123;</span><br><span class="line">        <span class="built_in">DeQueue</span>(Q, v);</span><br><span class="line">        <span class="keyword">for</span> (w = <span class="built_in">FirstNeighbor</span>(G,v); w &gt;= <span class="number">0</span>; w = <span class="built_in">NextNeighbor</span>(G, v, w)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[w]) &#123;</span><br><span class="line">                <span class="built_in">visit</span>(w);  visited[w] = True; </span><br><span class="line">                <span class="built_in">EnQueue</span>(Q,w);</span><br><span class="line">&#125;   &#125;   &#125;   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="性能分析">性能分析</h3>
+<ul>
+<li>空间复杂度 <span class="math inline">\(O(|V|)\)</span>
+(辅助队列，每个顶点都要进队）</li>
+<li>时间复杂度 邻接表 <span
+class="math inline">\(O(|V|+|E|)\)</span>，邻接矩阵 <span
+class="math inline">\(O(|V^2|)\)</span></li>
+</ul>
+<h2 id="深度优先搜索-dfs">深度优先搜索 DFS</h2>
+<h3 id="思想-1">思想</h3>
+<ul>
+<li>首先以某个顶点为起始点 v0，从该顶点 v0
+出发，访问与其相邻的且未被访问的<strong>一个 顶点</strong> v1</li>
+<li>再访问与 v1 相邻的且未被访问的<strong>一个顶点</strong> v2...</li>
+<li>重复上述过程，直到不能继续向下访问时，依次退回最近访问的结点（栈）</li>
+<li>若该顶点还有邻接点未被访问过，则从该点开始继续上述过程，直至访问完图的一个
+连通分量。</li>
+<li>若此时还有顶点未被访问，则从未被访问的某个顶点开始，重复上述步骤。(访问其他连
+通分量）</li>
+</ul>
+<h3 id="实现-1">实现</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxVertexNum 50</span></span><br><span class="line"><span class="type">bool</span> visited[MaxVertexNum];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFSTravese</span><span class="params">(Graph &amp;G)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; ++i) &#123; <span class="comment">// visted 数组初始化</span></span><br><span class="line">        visited[<span class="literal">false</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; ++i) &#123; <span class="comment">// 访问其他连通分量 </span></span><br><span class="line">        <span class="keyword">if</span> (!visited[i])  <span class="built_in">DFS</span>(G, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(Graph &amp;G, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">visit</span>(v);  </span><br><span class="line">    visited[v];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> w = <span class="built_in">FirstNeighbor</span>(G, v); w &gt;=<span class="number">0</span>; w = <span class="built_in">NextNeighbor</span>(G, v, w)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited[w]) &#123; </span><br><span class="line">            <span class="built_in">DFS</span>(G, w); <span class="comment">// 访问邻接点的邻接点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="性能分析-1">性能分析</h3>
+<ul>
+<li>空间复杂度 <span class="math inline">\(O(|V|)\)</span>
+(递归工作栈）</li>
+<li>时间复杂度 邻接表 <span
+class="math inline">\(O(|V|+|E|)\)</span>，邻接矩阵 <span
+class="math inline">\(O(|V^2|)\)</span></li>
+</ul>
+<h1 id="图的应用">图的应用</h1>
+<h2 id="最小生成树">最小生成树</h2>
+<ul>
+<li>最小生成树，<span class="math inline">\(e = n - 1\)</span></li>
+<li>最小生成树的代价唯一</li>
+<li>最小生成树为无环图</li>
+<li>最小生成树是极小连通子图</li>
+<li>无向连通图必有最小生成树</li>
+<li>无向连通图可能有一个或多个最小生成树。(因为有可能存在多条权值相等的边）</li>
+<li>无向连通图没有权值相同的边，则其有唯一最小生成树</li>
+<li>无向连通图中有多条权值相等的边，其最小生成树不一定唯一（假设有两条权值相等
+的边，如果一条边会导致环出现，则这条边不能生成最小生成树）</li>
+<li>用 Prim 算法和 Kruskal
+算法构造的最小生成树，可能相同，也可能不同</li>
+</ul>
+<h3 id="prim-算法无向网">Prim 算法（无向网）</h3>
+<ul>
+<li>基于贪心策略</li>
+<li>时间复杂度 <span class="math inline">\(O(|V|^2)\)</span><br />
+</li>
+<li>适用于边稠密的图 (不依赖于 <span
+class="math inline">\(|E|\)</span>)</li>
+</ul>
+<figure>
+<img src="/images/prim.png" alt="Prim" />
+<figcaption aria-hidden="true">Prim</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">U      (生成树的顶点集合)</span><br><span class="line">V-U    (剩余顶点集合)</span><br><span class="line">&lt;u, w&gt; (U 中顶点与 V-U 中顶点所构成的边)</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">1. 选择任一顶点，初始化生成树顶点集合 U</span><br><span class="line">2. 从剩余顶点集合 V-U 中，选取 U 与 V-U 所组合的权值最小的边 min&lt;u,w&gt;</span><br><span class="line">3. 将 V-U 中的顶点 w 合并到 U 中</span><br><span class="line">4. 重复以上步骤，直至 e = v - 1 </span><br></pre></td></tr></table></figure>
+<h3 id="kruskal-算法无向网">Kruskal 算法（无向网）</h3>
+<ul>
+<li>基于贪心策略</li>
+<li>时间复杂度 <span class="math inline">\(O(|E|log|E|)\)</span></li>
+<li>适用于边稀疏而顶点较多的图（不依赖于 <span
+class="math inline">\(|V|\)</span>)</li>
+</ul>
+<figure>
+<img src="/images/kruskal.png" title="a pic" alt="Kruskal" />
+<figcaption aria-hidden="true">Kruskal</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">步骤：</span><br><span class="line">1. 每个顶点自成一个连通分量 T = &#123; V, &#123;&#125; &#125; (即 T 中有 n 个连通分量）</span><br><span class="line">2. 将边按权值由小到大排列</span><br><span class="line">3. 依次选取当前未被选取、权值最小且不会产生环的边（即边的顶点落在 T 中不同的</span><br><span class="line">   连通分量上)，直至边的个数为 n-1 （即 T 中只有一个连通分量）</span><br></pre></td></tr></table></figure>
+<h2 id="最短路径">最短路径</h2>
+<p>最短路径路径问题：如果从有向图中某一顶点 (称为源点) 到达另一顶点
+(称为终点)
+的路径可能不止一条，如何找到一条路径使得沿此路径上各边上的权值总和达到最小。</p>
+<p>带权有向图的最短路径问题一般分为两类： 1.
+单源最短路径。即求图中某一顶点到其他各顶点的最短路径。 2.
+求每对顶点间的的最短路径。</p>
+<ul>
+<li>最短路径可以是有向带环图</li>
+</ul>
+<h3 id="dijkstra-算法-单源最短路径">Dijkstra 算法 （单源最短路径）</h3>
+<ul>
+<li>Dijkstra 算法是基于贪心策略的</li>
+<li>边上带有负权值时，Dijkstra 不适用</li>
+</ul>
+<figure>
+<img src="/images/graph-photo.png" alt="Dijkstra" />
+<figcaption aria-hidden="true">Dijkstra</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">S      (已求得的最短路径的顶点)</span><br><span class="line">V-S    (源点 v0 到 V-S 内剩余)</span><br><span class="line">dist[] (记录源点 v0 到其他各顶点当前的最短路径长度)</span><br><span class="line">       (v0-vi 有弧，dist[i] = 弧上权值；否则，dist[i] = infty)</span><br><span class="line">path[] (源点到顶点之间的最短路径的前驱节点)</span><br><span class="line"></span><br><span class="line">假定从 A 出发:                                </span><br><span class="line">       dist[2]   dist[3]   dist[4]   dist[5]   S[]    Path</span><br><span class="line">第1轮    10        INF       INF       5      S[2]=5  1-5</span><br><span class="line">第2轮    8         14         7               S[3]=4  1-5-4</span><br><span class="line">第3轮    8         13                         S[4]=3  1-5-4-3</span><br><span class="line">第4轮    8                                    S[5]=2  1-5-2</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">1. 根据源点的出度，确定其余顶点的 dist 数组</span><br><span class="line">2. 从 dist 数组中选取弧度最小的顶点，确定源点到此顶点的最短路径 v0-v1</span><br><span class="line">3. 从之前确定的顶点出发，更新其余顶点的 dist 数组，假设对于 v2 来讲，原来的</span><br><span class="line">   dist[2] = len(v0-v2) &gt; len(v0-v1-v2)，则更新 dist[2] = len(v0-v1-v2)</span><br><span class="line">4. 重复上述过程，直到进行 n-1 趟（因为不用确定 v0-v0)</span><br></pre></td></tr></table></figure>
+<h3 id="floyd-算法每对顶点最短路径">Floyd 算法（每对顶点最短路径）</h3>
+<ul>
+<li>基于贪心策略</li>
+<li>时间复杂度 <span class="math inline">\(O(|V|^3)\)</span></li>
+<li>计算任意两点间的最短路径</li>
+</ul>
+<figure>
+<img src="/images/floyd.png" title="a pic" alt="Floyd" />
+<figcaption aria-hidden="true">Floyd</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">上图 floyd 算法执行过程如下： </span><br><span class="line"></span><br><span class="line">0  6 13    0  6 13    0  6 10    0  6 13</span><br><span class="line">10 0  4    10 0  4    10 0  4    9  0  4</span><br><span class="line">5  &amp;  0    5  11 0    5  11 0    5  11 0</span><br><span class="line">             [0]        [1]        [2]</span><br><span class="line"></span><br><span class="line">* 距离矩阵中自己到自己的距离 a[i][i] == 0 </span><br><span class="line">* 当中转站为顶点 n 时，从 n 到其他顶点的距离不变 a[n][i] = a[n-1][i]</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">1. 以第一个顶点为中转站，比较 a[i][j] 与 a[i][1] + a[1][j]，取 a[i][j] =</span><br><span class="line">  min(a[i][j], a[i][1] + [1][j]，更新距离矩阵</span><br><span class="line">2. 从上一次矩阵结果开始，以第二个顶点为中转站，比较 a[i][j] 与 a[i][2] + a[2]</span><br><span class="line">  [j], 更新距离矩阵</span><br><span class="line">3. 重复以上步骤，直到以最后一个顶点为中转站比较完毕</span><br><span class="line"></span><br><span class="line">0  6 13    0  6 13    0  6 10    0  6 13</span><br><span class="line">10 0  4    10 0  4    10 0  4    9  0  4</span><br><span class="line">5  &amp;  0    5  11 0    5  11 0    5  11 0</span><br><span class="line">             [0]        [1]        [2]</span><br><span class="line"></span><br><span class="line">* 距离矩阵中自己到自己的距离 a[i][i] == 0 </span><br><span class="line">* 当中转站为顶点 n 时，从 n 到其他顶点的距离不变 a[n][i] = a[n-1][i]</span><br><span class="line"></span><br><span class="line">疑问</span><br><span class="line">====</span><br><span class="line"></span><br><span class="line">假设有 5 个顶点，矩阵从 1 开始。</span><br><span class="line">对于路径 a[4][3]，假定当以 2 为中转时有最短路径(a[4][3])，即</span><br><span class="line">min(a[4][3]) = min(a[4][2])+ min(a[2][3])</span><br><span class="line"></span><br><span class="line">但之前只经过中转 (1) 无法保证能取到 min(a[4][2]) 啊，因为 a[4][2] = a[4][1] +</span><br><span class="line">a[1][2] = a[4][2] + a[2][2] = a[4][3] + a[3][2] = a[4][4] + a[4][2] = a[4][5]</span><br><span class="line">+ a[5][2]，即还没经过中转(2|3|4|5)</span><br><span class="line"></span><br><span class="line">在中转站(以 5 为例) 中，a[4][3] = a[4][2] + a[2][3] 只与 a[4][5] + a[5][3】</span><br><span class="line">对比，尽管此时的 a[4][2] 更新了，但 a[4][3] 中的 a[4][2] 还沿用的旧值。</span><br></pre></td></tr></table></figure>
+<h2 id="有向无环图dag描述表达式">有向无环图(DAG)描述表达式</h2>
+<ul>
+<li>DAG 是描述含有公共子式的表达式的有效工具</li>
+<li>实现对相同子式的共享，从而节省储存空间</li>
+</ul>
+<p>用 DAG 描述表达式 <span
+class="math inline">\(((a+b)*(b*(c+d))+(c+d)*e)*((c+d)*e)\)</span>
+过程如下：*</p>
+<figure>
+<img src="/images/expr.png" title="a pic" alt="DAG 描述表达式" />
+<figcaption aria-hidden="true">DAG 描述表达式</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">步骤：</span><br><span class="line">1. 将操作数排成一排</span><br><span class="line">2. 按运算优先顺序，运算处于同一级的，运算符为同一层，其中运算符指向两个操作数</span><br><span class="line">3. 重复以上步骤，直到最后一层运算完成</span><br></pre></td></tr></table></figure>
+<h2 id="拓扑排序">拓扑排序</h2>
+<ul>
+<li>DFS 遍历图输出的是逆拓扑序列，因为对于每个边 &lt;vi, vj&gt;
+而言，都是将<br />
+先输出 vj, 再输出 vi</li>
+</ul>
+<h3 id="aov-网">AOV 网</h3>
+<p>用有向无环图（<span
+class="math inline">\(DAG\)</span>）表示一个工程，其顶点表示活动，用有向边
+<span class="math inline">\(&lt;V_i,V_j&gt;\)</span> 表示 活动 <span
+class="math inline">\(V_i\)</span> 必须先于活动 <span
+class="math inline">\(V_j\)</span>
+进行这样一种关系，则将这种有向图称为顶点表示活 动的网络，记为 <span
+class="math inline">\(AOV\)</span> 网。</p>
+<h3 id="拓扑排序-1">拓扑排序</h3>
+<ul>
+<li>有向无环图</li>
+<li>每个顶点出现且只出现一次</li>
+<li>若顶点 A 在序列排在顶点 B 的前面，则在图中不存在从顶点 B 到顶点 A
+的路径</li>
+<li>每个 AOV 网都有一个或多个拓扑排序序列</li>
+<li>若一个顶点有多个直接后继（出度 &gt; 1)，则拓扑序列不唯一</li>
+<li>对于一般图，若其邻接矩阵是三角矩阵，则存在拓扑序列(可能不唯一)</li>
+<li>时间复杂度。邻接表 <span
+class="math inline">\(O(|V|+|E|)\)</span>，邻接矩阵 <span
+class="math inline">\(0(|V^2|)\)</span></li>
+</ul>
+<figure>
+<img src="/images/AOV.png" alt="拓扑排序" />
+<figcaption aria-hidden="true">拓扑排序</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">生成拓扑序列步骤：</span><br><span class="line">1. 从 AOV 网中选择一个没有前驱的顶点输出（即入度为 0 的顶点）</span><br><span class="line">2. 从网中删除该顶点和以他为起点的有向边 （更新剩余顶点的入度）</span><br><span class="line">3. 重复以上步骤，直至 AOV 网为空</span><br><span class="line"></span><br><span class="line">上图中的 AOV 网的拓扑序列：1-2-4-3-5</span><br></pre></td></tr></table></figure>
+<h2 id="关键路径">关键路径</h2>
+<ul>
+<li>增加任一关键活动的时间都会延长工程的工期</li>
+<li>缩短一条关键活动的时间不一定会缩短工程的工期</li>
+<li>仅有一条关键路径时，减少关键活动的时间会缩短工程的工期</li>
+<li>要缩短工程的工期，缩短时间的关键活动可以为非共同关键活动，<br />
+(例如 a-b-c a-c-e b-d-f，缩短 cf 就可以，只要保证每一条都缩短就行）</li>
+<li>改变网上某一关键路径上的任一关键活动后，有可能产生不同的关键路径<br />
+因为，有可能改变的是公共关键活动，关键路径不变</li>
+</ul>
+<h3 id="aoe-网">AOE 网</h3>
+<p>在带权有向图中，以顶点表示时间，以有向边表示活动，以边上的权值表示完成该活<br />
+动的开销（如完成活动所需的时间），其称之为用边表示活动的网络，简称 AOE
+网。</p>
+<h3 id="关键路径-1">关键路径</h3>
+<p>从源点到汇点的所有路径中，具有最大路径长度的路径，称之为关键路径。</p>
+<ul>
+<li>源点。在 AOE 网中仅有一个的入度为 0 的顶点。</li>
+<li>汇点。在 AOE 网中仅有一个的出度为 0 的顶点。</li>
+<li>关键活动。关键路径上的活动（有向边）</li>
+</ul>
+<figure>
+<img src="/images/关键路径.png" title="a pic" alt="关键路径" />
+<figcaption aria-hidden="true">关键路径</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">ve(k) 事件 vk 的最早发生事件               dur&lt;vj, vk&gt;</span><br><span class="line">vl(k) 事件 vk 的最迟发生时间          vj ----------------&gt; vk</span><br><span class="line">e(i)  活动 ai 的最早开始时间                    ai</span><br><span class="line">l(i)  活动 ai 的最迟开始时间         </span><br><span class="line"></span><br><span class="line">ve(k) = max(ve(j) + dur&lt;vj, vk&gt;)</span><br><span class="line">vl(k) = min(ve(j) - dur&lt;vk, vj&gt;)</span><br><span class="line">e(i) = ve(k)                   (k 为 活动 i 的起点的顶点）</span><br><span class="line">l(i) = vl(j) - dur&lt;vk, vj&gt;     (j 为 活动 i 的终点的顶点)</span><br><span class="line">d(i) = l(i) - e(i)</span><br><span class="line"></span><br><span class="line">上图的 ve() vl() e() l() d() 表如下：</span><br><span class="line">===================================================</span><br><span class="line">      v1    v2    v3    v4    v5    v6</span><br><span class="line">ve()   0     3     2     6     6     8       </span><br><span class="line">vl()   0     4     2     6     7     8           </span><br><span class="line"></span><br><span class="line">      a1    a2    a3    a4    a5    a6    a7    a8</span><br><span class="line">e()    0     0     3     3     2     2     6     6                 </span><br><span class="line">l()    1     0     4     4     2     5     6     7                    </span><br><span class="line">d()    1     0     1     1     0     3     0     1                  </span><br><span class="line">===================================================</span><br><span class="line">关键活动为：a2(v1-v3)  a5(v3-v4)  a7(v4-v6)</span><br><span class="line">关键路径为：v1-v3-v4-v6</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">1. 从源点出发，ve(源点) = 0, 按拓扑有序求其余顶点的最早发生时间 ve()</span><br><span class="line">2. 从汇点出发, vl(汇点) = ve(汇点），按逆拓扑有序求其余顶点的最迟发生时间 vl()</span><br><span class="line">3. 求所有活动(有向弧）的最早开始时间 e(i), e(i) = ve(k) </span><br><span class="line">4. 求所有活动(有向弧) 的最迟开始时间 l(i), l(i) = vl(j) - dur&lt;vk, vj&gt;</span><br><span class="line">5. 求活动的时间余量 d(i), d(i) = l(i) - e(i)，其中 d(i) = 0 的活动为关键活动，</span><br><span class="line">   由 d(i) = 0 的活动组成的路径为关键路径。</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">2.</span> <span class="toc-text">基本性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-number"></span> <span class="toc-text">图的储存结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="toc-number">1.</span> <span class="toc-text">邻接矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">储存结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">邻接表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-1"><span class="toc-number">2.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84-1"><span class="toc-number">2.2.</span> <span class="toc-text">储存结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%AD%97%E9%93%BE%E8%A1%A8%E6%B3%95-%E6%9C%89%E5%90%91%E5%9B%BE"><span class="toc-number">3.</span> <span class="toc-text">十字链表法 (有向图）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%A4%9A%E9%87%8D%E8%A1%A8%E6%97%A0%E5%90%91%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">邻接多重表（无向图）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number"></span> <span class="toc-text">图的遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-bfs"><span class="toc-number">1.</span> <span class="toc-text">广度优先搜索 BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E6%83%B3"><span class="toc-number">1.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">1.3.</span> <span class="toc-text">性能分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-dfs"><span class="toc-number">2.</span> <span class="toc-text">深度优先搜索 DFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E6%83%B3-1"><span class="toc-number">2.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">2.2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90-1"><span class="toc-number">2.3.</span> <span class="toc-text">性能分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">图的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">最小生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prim-%E7%AE%97%E6%B3%95%E6%97%A0%E5%90%91%E7%BD%91"><span class="toc-number">1.1.</span> <span class="toc-text">Prim 算法（无向网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kruskal-%E7%AE%97%E6%B3%95%E6%97%A0%E5%90%91%E7%BD%91"><span class="toc-number">1.2.</span> <span class="toc-text">Kruskal 算法（无向网）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">2.</span> <span class="toc-text">最短路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dijkstra-%E7%AE%97%E6%B3%95-%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">2.1.</span> <span class="toc-text">Dijkstra 算法 （单源最短路径）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#floyd-%E7%AE%97%E6%B3%95%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">2.2.</span> <span class="toc-text">Floyd 算法（每对顶点最短路径）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BEdag%E6%8F%8F%E8%BF%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">有向无环图(DAG)描述表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-number">4.</span> <span class="toc-text">拓扑排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aov-%E7%BD%91"><span class="toc-number">4.1.</span> <span class="toc-text">AOV 网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F-1"><span class="toc-number">4.2.</span> <span class="toc-text">拓扑排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="toc-number">5.</span> <span class="toc-text">关键路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aoe-%E7%BD%91"><span class="toc-number">5.1.</span> <span class="toc-text">AOE 网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84-1"><span class="toc-number">5.2.</span> <span class="toc-text">关键路径</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/20/graph/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/20/graph/&text=DS/Graph"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/20/graph/&is_video=false&description=DS/Graph"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DS/Graph&body=Check out this article: http://example.com/2022/05/20/graph/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/20/graph/&title=DS/Graph"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/20/graph/&name=DS/Graph&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/20/graph/&t=DS/Graph"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    lh1705
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
