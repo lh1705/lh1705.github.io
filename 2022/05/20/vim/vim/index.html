@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="1 Basic1.1 Insert   Key Description    i 插入到光标前   a 插入到光标后   s 插入到光标下   o 插入到下一行   O 插入到上一行   A 插入到行首   I 插入到行尾   S 插入到当前行   1.2 Move   Key Description    [n]w 向前移动到下一个单词开头   [n]W 向前移动到下一个单词开头，期间忽略特殊符">
+    <meta name="description" content="1 Basic 1.1 Insert    Key Description     i 插入到光标前   a 插入到光标后   s 插入到光标下   o 插入到下一行   O 插入到上一行   A 插入到行首   I 插入到行尾   S 插入到当前行    1.2 Move    Key Descri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim 基础">
 <meta property="og:url" content="http://example.com/2022/05/20/vim/vim/index.html">
 <meta property="og:site_name" content="lh1705">
-<meta property="og:description" content="1 Basic1.1 Insert   Key Description    i 插入到光标前   a 插入到光标后   s 插入到光标下   o 插入到下一行   O 插入到上一行   A 插入到行首   I 插入到行尾   S 插入到当前行   1.2 Move   Key Description    [n]w 向前移动到下一个单词开头   [n]W 向前移动到下一个单词开头，期间忽略特殊符">
+<meta property="og:description" content="1 Basic 1.1 Insert    Key Description     i 插入到光标前   a 插入到光标后   s 插入到光标下   o 插入到下一行   O 插入到上一行   A 插入到行首   I 插入到行尾   S 插入到当前行    1.2 Move    Key Descri">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-05-23T02:06:43.951Z">
+<meta property="article:modified_time" content="2022-05-25T04:57:45.152Z">
 <meta property="article:author" content="lh1705">
 <meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary">
@@ -116,7 +116,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Basic"><span class="toc-number">1.</span> <span class="toc-text">1 Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Insert"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Move"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Move</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Scroll"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Scroll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Delete"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Select"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Copy"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 Copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-Paste"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 Paste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-Search"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 Search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-Replace"><span class="toc-number">1.9.</span> <span class="toc-text">1.9 Replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-Folding"><span class="toc-number">1.10.</span> <span class="toc-text">1.10 Folding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-Window"><span class="toc-number">1.11.</span> <span class="toc-text">1.10 Window</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tab"><span class="toc-number">2.</span> <span class="toc-text">Tab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Useful-trick"><span class="toc-number">3.</span> <span class="toc-text">Useful trick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding"><span class="toc-number">4.</span> <span class="toc-text">Coding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Markdown"><span class="toc-number">5.</span> <span class="toc-text">3 Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Basic-config"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 Basic config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Outline"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 Outline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Toc"><span class="toc-number">5.3.</span> <span class="toc-text">3.3 Toc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Mapping"><span class="toc-number">6.</span> <span class="toc-text">4 Mapping</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Alt-mapping"><span class="toc-number">6.1.</span> <span class="toc-text">4.1 Alt mapping</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Shortcut"><span class="toc-number">7.</span> <span class="toc-text">5 Shortcut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Snippet"><span class="toc-number">8.</span> <span class="toc-text">6 Snippet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-IME"><span class="toc-number">9.</span> <span class="toc-text">7 IME</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Troubleshooting"><span class="toc-number">10.</span> <span class="toc-text">8 Troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C-path-to-vim-exe%E2%80%9D-not-found-win"><span class="toc-number">10.1.</span> <span class="toc-text">“\path to vim.exe” not found (win)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No-python-support-win"><span class="toc-number">10.2.</span> <span class="toc-text">No python support (win)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tagbar-plugin"><span class="toc-number">10.3.</span> <span class="toc-text">Tagbar (plugin)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">11.</span> <span class="toc-text">Reference</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#basic"><span class="toc-number">1.</span> <span class="toc-text">1 Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#insert"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#move"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Move</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scroll"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Scroll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delete"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#select"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 Copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paste"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 Paste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#search"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 Search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace"><span class="toc-number">1.9.</span> <span class="toc-text">1.9 Replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#folding"><span class="toc-number">1.10.</span> <span class="toc-text">1.10 Folding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump"><span class="toc-number">2.</span> <span class="toc-text">Jump</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window"><span class="toc-number">2.1.</span> <span class="toc-text">1.10 Window</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useful-trick"><span class="toc-number">3.</span> <span class="toc-text">Useful trick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -160,553 +160,577 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="1-Basic"><a href="#1-Basic" class="headerlink" title="1 Basic"></a>1 Basic</h2><h3 id="1-1-Insert"><a href="#1-1-Insert" class="headerlink" title="1.1 Insert"></a>1.1 Insert</h3><table>
+    <h2 id="basic">1 Basic</h2>
+<h3 id="insert">1.1 Insert</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>i</td>
 <td>插入到光标前</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>插入到光标后</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>s</td>
 <td>插入到光标下</td>
 </tr>
-<tr>
+<tr class="even">
 <td>o</td>
 <td>插入到下一行</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>O</td>
 <td>插入到上一行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>A</td>
 <td>插入到行首</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>I</td>
 <td>插入到行尾</td>
 </tr>
-<tr>
+<tr class="even">
 <td>S</td>
 <td>插入到当前行</td>
 </tr>
-</tbody></table>
-<h3 id="1-2-Move"><a href="#1-2-Move" class="headerlink" title="1.2 Move"></a>1.2 Move</h3><table>
+</tbody>
+</table>
+<h3 id="move">1.2 Move</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>[n]w</td>
 <td>向前移动到下一个单词开头</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]W</td>
 <td>向前移动到下一个单词开头，期间忽略特殊符号</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]e</td>
 <td>向前移动到下一个单词结尾</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]E</td>
 <td>向前移动到下一个单词结尾，期间忽略特殊符号</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]b</td>
 <td>向后移动到前一个单词开头</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]B</td>
 <td>向后移动到前一个单词开头，期间忽略特殊符号</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]f[x]</td>
 <td>向前移动到指定字符位置</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]F[x]</td>
 <td>向后移动到指定字符位置</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]t[x]</td>
 <td>向后移动到指定字符前一字符位置</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]T[x]</td>
 <td>向前移动到指定字符前一字符位置</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>移动到行首</td>
 </tr>
-<tr>
+<tr class="even">
 <td>^</td>
 <td>移动到当前行的第一个非空字符</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>$</td>
 <td>移动到行尾</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-</td>
 <td>移动到上一行开头</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>+</td>
 <td>移动到下一行结尾</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nG</td>
 <td>移动到指定行</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>n+</td>
 <td>向上移动指定行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>n-</td>
 <td>向下移动指定行</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>H</td>
 <td>移动到当前屏幕顶部</td>
 </tr>
-<tr>
+<tr class="even">
 <td>M</td>
 <td>移动到当前屏幕中间</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>L</td>
 <td>移动到当前屏幕底部</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n](</td>
 <td>移动到句子开头</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n])</td>
 <td>移动到句子结尾</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]{</td>
 <td>移动到段落开头</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]}</td>
 <td>移动到段落尾部</td>
 </tr>
-<tr>
+<tr class="even">
 <td>gg</td>
 <td>移动到文档底部</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>G</td>
 <td>移动到文档顶部</td>
 </tr>
-<tr>
+<tr class="even">
 <td>H</td>
 <td>移动到屏幕顶部</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>M</td>
 <td>移动到屏幕中间</td>
 </tr>
-<tr>
+<tr class="even">
 <td>L</td>
 <td>移动到屏幕底部</td>
 </tr>
-</tbody></table>
-<h3 id="1-3-Scroll"><a href="#1-3-Scroll" class="headerlink" title="1.3 Scroll"></a>1.3 Scroll</h3><table>
+</tbody>
+</table>
+<h3 id="scroll">1.3 Scroll</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>[n]&lt;C-f&gt;</td>
 <td>向下滚动一屏</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]&lt;C-b&gt;</td>
 <td>向上滚动一屏</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]&lt;C-d&gt;</td>
 <td>向上滚动半屏</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]&lt;C-u&gt;</td>
 <td>向下滚动半屏</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]&lt;C-e&gt;</td>
 <td>向下滚动一行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]&lt;C-y&gt;</td>
 <td>向上滚动一行</td>
 </tr>
-<tr>
-<td>zt&#x2F;z&lt;CR&gt;</td>
+<tr class="odd">
+<td>zt/z&lt;CR&gt;</td>
 <td>滚动到屏幕顶部</td>
 </tr>
-<tr>
-<td>zz&#x2F;z.</td>
+<tr class="even">
+<td>zz/z.</td>
 <td>滚动到屏幕中央</td>
 </tr>
-<tr>
-<td>zb&#x2F;z-</td>
+<tr class="odd">
+<td>zb/z-</td>
 <td>滚动到屏幕底部</td>
 </tr>
-</tbody></table>
-<h3 id="1-4-Delete"><a href="#1-4-Delete" class="headerlink" title="1.4 Delete"></a>1.4 Delete</h3><table>
+</tbody>
+</table>
+<h3 id="delete">1.4 Delete</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>dl(x)</td>
 <td>删除当前字符</td>
 </tr>
-<tr>
+<tr class="even">
 <td>diw</td>
 <td>删除当前单词</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]dd</td>
 <td>删除当前行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>di_</td>
 <td>删除文本对象(单词、段落、句子) ([{</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>da_</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>d_</td>
 <td>删除到行首、行尾、文首、文末</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]dt[c]</td>
 <td>从当前字符向后删除到指定字符</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]dT[c]</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]df[c]</td>
 <td>delete form current char to specify char</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]dF[c]</td>
 <td></td>
 </tr>
-</tbody></table>
-<h3 id="1-5-Select"><a href="#1-5-Select" class="headerlink" title="1.5 Select"></a>1.5 Select</h3><table>
+</tbody>
+</table>
+<h3 id="select">1.5 Select</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>v&#x2F;V</td>
+<tbody>
+<tr class="odd">
+<td>v/V</td>
 <td>行选择</td>
 </tr>
-<tr>
-<td><C-v> &#x2F; <C-q></td>
+<tr class="even">
+<td><C-v> / <C-q></td>
 <td>块选择</td>
 </tr>
-</tbody></table>
-<h3 id="1-6-Copy"><a href="#1-6-Copy" class="headerlink" title="1.6 Copy"></a>1.6 Copy</h3><table>
+</tbody>
+</table>
+<h3 id="copy">1.6 Copy</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>[n]yy</td>
 <td>复制当前行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]Y</td>
 <td>复制当前行</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>y_</td>
 <td>复制到行首、行尾、文首、文末</td>
 </tr>
-<tr>
+<tr class="even">
 <td>yi_</td>
 <td>复制文本对象（单词、句子、段落) （[{</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ya_</td>
 <td>复制文本对象</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]yt[c]</td>
-<td></td>
+<td>向前复制行内当前字符到指定字符前一字符间的内容</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]yT[c]</td>
-<td></td>
+<td>向后复制行内当前字符到指定字符前一字符间的内容</td>
 </tr>
-<tr>
+<tr class="even">
 <td>[n]yf[c]</td>
-<td>复制行内当前字符到指定字符的内容</td>
+<td>向前复制行内当前字符到指定字符间的内容</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>[n]yF[c]</td>
-<td></td>
+<td>向后复制行内当前字符到指定字符间的内容</td>
 </tr>
-</tbody></table>
-<h3 id="1-7-Paste"><a href="#1-7-Paste" class="headerlink" title="1.7 Paste"></a>1.7 Paste</h3><table>
+</tbody>
+</table>
+<h3 id="paste">1.7 Paste</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>p</td>
 <td></td>
 </tr>
-</tbody></table>
-<h3 id="1-8-Search"><a href="#1-8-Search" class="headerlink" title="1.8 Search"></a>1.8 Search</h3><table>
+</tbody>
+</table>
+<h3 id="search">1.8 Search</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>&#x2F;</td>
+<tbody>
+<tr class="odd">
+<td>/</td>
 <td>从光标开始处向文件尾搜索</td>
 </tr>
-<tr>
+<tr class="even">
 <td>?</td>
 <td>从光标开始处向文件首搜索</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>n</td>
 <td>移动到上一个搜索结果</td>
 </tr>
-<tr>
+<tr class="even">
 <td>N</td>
 <td>移动到下一个搜索结果</td>
 </tr>
-</tbody></table>
-<h3 id="1-9-Replace"><a href="#1-9-Replace" class="headerlink" title="1.9 Replace"></a>1.9 Replace</h3><table>
+</tbody>
+</table>
+<h3 id="replace">1.9 Replace</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>r</td>
 <td>单字符替换</td>
 </tr>
-<tr>
+<tr class="even">
 <td>R</td>
 <td>进入替换模式，覆盖原内容</td>
 </tr>
-<tr>
-<td>[range]s&#x2F;find_str&#x2F;replace_str&#x2F;g</td>
+<tr class="odd">
+<td>[range]s/find_str/replace_str/g</td>
 <td>替换指定范围的字符</td>
 </tr>
-</tbody></table>
-<h3 id="1-10-Folding"><a href="#1-10-Folding" class="headerlink" title="1.10 Folding"></a>1.10 Folding</h3><table>
+</tbody>
+</table>
+<h3 id="folding">1.10 Folding</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>zf</td>
 <td>创建折叠标记</td>
 </tr>
-<tr>
+<tr class="even">
 <td>zd</td>
 <td>删除折叠标记</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>zo</td>
 <td>展开折叠</td>
 </tr>
-<tr>
+<tr class="even">
 <td>zc</td>
 <td>折叠</td>
 </tr>
-</tbody></table>
-<h3 id="1-10-Window"><a href="#1-10-Window" class="headerlink" title="1.10 Window"></a>1.10 Window</h3><table>
+</tbody>
+</table>
+<h2 id="jump">Jump</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
+<td>]]</td>
+<td>跳到下一函数</td>
+</tr>
+<tr class="even">
+<td>[[</td>
+<td>跳到前一个函数</td>
+</tr>
+<tr class="odd">
+<td>]}</td>
+<td>func end bracket</td>
+</tr>
+<tr class="even">
+<td>[{</td>
+<td>func start bracket</td>
+</tr>
+</tbody>
+</table>
+<h3 id="window">1.10 Window</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td>CTRL-W h</td>
 <td>移动到左窗口</td>
 </tr>
-<tr>
+<tr class="even">
 <td>CTRL-W j</td>
 <td>移动到下窗口</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>CTRL-W k</td>
 <td>移动到上窗口</td>
 </tr>
-<tr>
+<tr class="even">
 <td>CTRL-W l</td>
 <td>移动到右窗口</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>CTRL-W t</td>
 <td>移动到顶窗口</td>
 </tr>
-<tr>
+<tr class="even">
 <td>CTRL-W b</td>
 <td>移动到底窗口</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>sp</td>
 <td>水平分割窗口</td>
 </tr>
-<tr>
+<tr class="even">
 <td>vsp</td>
 <td>垂直分割窗口</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>:resize +n</td>
 <td>增加窗口高度</td>
 </tr>
-<tr>
+<tr class="even">
 <td>:resize -n</td>
 <td>降低窗口高度</td>
 </tr>
-</tbody></table>
-<h2 id="Tab"><a href="#Tab" class="headerlink" title="Tab"></a>Tab</h2><h2 id="Useful-trick"><a href="#Useful-trick" class="headerlink" title="Useful trick"></a>Useful trick</h2><table>
+</tbody>
+</table>
+<h2 id="useful-trick">Useful trick</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>0w</td>
 <td>移动到行首第一个非空字符</td>
 </tr>
-<tr>
+<tr class="even">
 <td>gd</td>
 <td>折行</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>J</td>
 <td>多行合并</td>
 </tr>
-<tr>
+<tr class="even">
 <td>&lt;C-l&gt;</td>
 <td>消除搜索高亮</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>YpVR_</td>
 <td>Markdown Setext heading</td>
 </tr>
-<tr>
+<tr class="even">
 <td>source $MYVIMRC</td>
-<td>重载 vimrc&#x2F;init.vim 文件</td>
+<td>重载 vimrc/init.vim 文件</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>12, 31 co 22</td>
 <td>复制指定行到指定位置</td>
 </tr>
-<tr>
+<tr class="even">
 <td>12, 31 m 22</td>
 <td>移动指定行到指定位置</td>
 </tr>
-</tbody></table>
-<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">| Key | Description            |</span><br><span class="line">|-----|------------------------|</span><br><span class="line">| ]]  | <span class="keyword">next</span> func              |</span><br><span class="line">| [[  | <span class="keyword">prev</span> func              |</span><br><span class="line">| ]&#125;  | func end bracket       |</span><br><span class="line">| [&#123;  | func start bracket     |</span><br><span class="line">| v]] | select func definition |</span><br><span class="line">| v[[ |                        |</span><br><span class="line">| v]&#125; |                        |</span><br><span class="line">| v[&#123; |                        |</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Markdown"><a href="#3-Markdown" class="headerlink" title="3 Markdown"></a>3 Markdown</h2><h3 id="3-1-Basic-config"><a href="#3-1-Basic-config" class="headerlink" title="3.1 Basic config"></a>3.1 Basic config</h3><p>Use <code>Tagbar</code> and <code>markdown2ctags</code> to show <em>outline</em>, <code>vim-table-mode</code> to<br>format table, <code>vim-markdwon</code> to fold and lable jump and generate <em>Toc</em>. </p>
-<h3 id="3-2-Outline"><a href="#3-2-Outline" class="headerlink" title="3.2 Outline"></a>3.2 Outline</h3><p>To use markdown2ctags plug or self-define ctags’s config.</p>
-<p>Windows: </p>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
 <ul>
-<li>install plugin <code>jszakmeister/markdown2ctags</code></li>
-<li>add <code>let g:tagbar_type_markdown</code> into vimrc&#x2F; init.vim</li>
-<li>complier <code>markdown2ctags.py</code> into .exe</li>
-<li>set <code>let g:tagbar_type_mardown</code>‘s ‘ctagsbin’: &#x2F;path&#x2F;to&#x2F;exe</li>
-</ul>
-<p>Linux:</p>
-<ul>
-<li>install plugin <code>jszakmeister/markdown2ctags</code></li>
-<li>add <code>let g:tagbar_type_markdown</code> into vimrc&#x2F; init.vim</li>
-<li>set <code>let g:tagbar_type_mardown</code>‘s ‘ctagsbin’: &#x2F;path&#x2F;to&#x2F;markdownctags.py</li>
-</ul>
-<h3 id="3-3-Toc"><a href="#3-3-Toc" class="headerlink" title="3.3 Toc"></a>3.3 Toc</h3><p>Use plug <code>vim-markdwon</code> to generate Toc.</p>
-<ul>
-<li><code>:InsertToc [n]</code>: Generate the unordered Toc which can use number to specify heading level.</li>
-<li><code>:InsertNToc [n]</code> Generate the nordered Toc which can use number to specify heading level.</li>
-</ul>
-<h2 id="4-Mapping"><a href="#4-Mapping" class="headerlink" title="4 Mapping"></a>4 Mapping</h2><h3 id="4-1-Alt-mapping"><a href="#4-1-Alt-mapping" class="headerlink" title="4.1 Alt mapping"></a>4.1 Alt mapping</h3><p>Hit <code>Ctrl-v</code> (<code>Ctrl-q</code> in win) to go into visual-block mode, and hit the<br>map-key, we will get some chars, use these chars to map the function. It<br>likes: <code>nmap &lt;M-,&gt; gt</code>,and <code>&lt;M-,&gt;</code> is used as hitting-chars for <code>Alt-,</code>.	</p>
-<h2 id="5-Shortcut"><a href="#5-Shortcut" class="headerlink" title="5 Shortcut"></a>5 Shortcut</h2><h2 id="6-Snippet"><a href="#6-Snippet" class="headerlink" title="6 Snippet"></a>6 Snippet</h2><h2 id="7-IME"><a href="#7-IME" class="headerlink" title="7 IME"></a>7 IME</h2><p>Use Plug <code>Neur1n/neuims</code> to easily swtich IME betweeen n-mode and i-mode. </p>
-<p>My requirement:</p>
-<ul>
-<li>Noraml mode : en-us</li>
-<li>Insert mode : en-us</li>
-<li>Switch by Alt-Shift in i-mode.</li>
-</ul>
-<p>What should we do?</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Plug `Neur1n/neuims`  </span><br><span class="line"><span class="keyword">vim</span> ~\AppData\Local\nvim-data\plugged\neuims\autoload\neuims.<span class="keyword">vim</span> </span><br><span class="line">:%s/<span class="number">0</span>x0804/<span class="number">0</span>x0409/g</span><br></pre></td></tr></table></figure>
-<p>Ok, let’s happy!</p>
-<h2 id="8-Troubleshooting"><a href="#8-Troubleshooting" class="headerlink" title="8 Troubleshooting"></a>8 Troubleshooting</h2><h3 id="“-path-to-vim-exe”-not-found-win"><a href="#“-path-to-vim-exe”-not-found-win" class="headerlink" title="“\path to vim.exe” not found (win)"></a>“\path to vim.exe” not found (win)</h3><p>This question is caused by bat files in $env:windir which are related to vim<br>, so we use following command to delete:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$env:windir</span></span><br><span class="line">gsudo <span class="built_in">rm</span> *vim*.bat*</span><br></pre></td></tr></table></figure>
-<h3 id="No-python-support-win"><a href="#No-python-support-win" class="headerlink" title="No python support (win)"></a>No python support (win)</h3><p>Complie Vim by yourself and add Python support or install other version vim<br>which has been complied.(vim-nightly or vimX).</p>
-<h3 id="Tagbar-plugin"><a href="#Tagbar-plugin" class="headerlink" title="Tagbar (plugin)"></a>Tagbar (plugin)</h3><ol>
-<li>切换 tags 太慢</li>
-</ol>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> updatetime=<span class="number">100</span> (default <span class="number">4000</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>不关闭文件，更新 tags</li>
-</ol>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">w</span> (save <span class="keyword">file</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>:w 更新文件后，tags 更新太慢</li>
-</ol>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">w</span> :<span class="keyword">e</span> / <span class="keyword">set</span> autowriteall :<span class="keyword">e</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pejsidney/p/9591055.html">vi &#x2F;vim 删除以及其它命令</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ifantastic/p/3770886.html">vim 常用基本操作</a> </li>
-<li><a target="_blank" rel="noopener" href="https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/">Neovim 输入法模式自动切换设置</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pejsidney/p/9591055.html">vi /vim
+删除以及其它命令</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ifantastic/p/3770886.html">vim
+常用基本操作</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/">Neovim
+输入法模式自动切换设置</a></li>
 </ul>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -729,7 +753,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Basic"><span class="toc-number">1.</span> <span class="toc-text">1 Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Insert"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Move"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Move</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Scroll"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Scroll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Delete"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Select"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Copy"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 Copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-Paste"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 Paste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-Search"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 Search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-Replace"><span class="toc-number">1.9.</span> <span class="toc-text">1.9 Replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-Folding"><span class="toc-number">1.10.</span> <span class="toc-text">1.10 Folding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-Window"><span class="toc-number">1.11.</span> <span class="toc-text">1.10 Window</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tab"><span class="toc-number">2.</span> <span class="toc-text">Tab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Useful-trick"><span class="toc-number">3.</span> <span class="toc-text">Useful trick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding"><span class="toc-number">4.</span> <span class="toc-text">Coding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Markdown"><span class="toc-number">5.</span> <span class="toc-text">3 Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Basic-config"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 Basic config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Outline"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 Outline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Toc"><span class="toc-number">5.3.</span> <span class="toc-text">3.3 Toc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Mapping"><span class="toc-number">6.</span> <span class="toc-text">4 Mapping</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Alt-mapping"><span class="toc-number">6.1.</span> <span class="toc-text">4.1 Alt mapping</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Shortcut"><span class="toc-number">7.</span> <span class="toc-text">5 Shortcut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Snippet"><span class="toc-number">8.</span> <span class="toc-text">6 Snippet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-IME"><span class="toc-number">9.</span> <span class="toc-text">7 IME</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Troubleshooting"><span class="toc-number">10.</span> <span class="toc-text">8 Troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C-path-to-vim-exe%E2%80%9D-not-found-win"><span class="toc-number">10.1.</span> <span class="toc-text">“\path to vim.exe” not found (win)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No-python-support-win"><span class="toc-number">10.2.</span> <span class="toc-text">No python support (win)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tagbar-plugin"><span class="toc-number">10.3.</span> <span class="toc-text">Tagbar (plugin)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">11.</span> <span class="toc-text">Reference</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#basic"><span class="toc-number">1.</span> <span class="toc-text">1 Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#insert"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#move"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Move</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scroll"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Scroll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delete"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#select"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 Copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paste"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 Paste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#search"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 Search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace"><span class="toc-number">1.9.</span> <span class="toc-text">1.9 Replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#folding"><span class="toc-number">1.10.</span> <span class="toc-text">1.10 Folding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump"><span class="toc-number">2.</span> <span class="toc-text">Jump</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window"><span class="toc-number">2.1.</span> <span class="toc-text">1.10 Window</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useful-trick"><span class="toc-number">3.</span> <span class="toc-text">Useful trick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -839,6 +863,18 @@
 <!-- Umami Analytics -->
 
 <!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'lh1705';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
 
 <!-- utterances Comments -->
 
