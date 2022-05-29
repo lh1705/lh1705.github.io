@@ -561,6 +561,9 @@ body {
   background-size: 100% 6px;
   background-repeat: repeat-x;
 }
+.content img {
+  border-radius: 5px;
+}
 @media (min-width: 540px) {
   .image-wrap {
     flex-direction: row;
