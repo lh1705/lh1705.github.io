@@ -14,7 +14,7 @@
 <meta property="og:description" content="啊啊啊，11：40 了，我真的不想写啊，好痛苦😭。  今天考英语 6 级了。 怎么说呢，出发的时候发现收音机没电、到楼下的时候发现手表没电。然后呢，然后就带了两支笔、一块橡皮、一张准考证... 考试的时候，看见作文我人懵了。单词不认识，这怎么搞...🤣。xdm，告诉我，take delight in 和 needy 是啥意思？ 奶奶的，你说 needy 不认识情有可原，但那个de">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-11T15:42:34.000Z">
-<meta property="article:modified_time" content="2022-06-11T16:49:07.652Z">
+<meta property="article:modified_time" content="2022-06-12T00:42:48.808Z">
 <meta property="article:author" content="lh1705">
 <meta property="article:tag" content="Diary">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@ mjx-container[display="true"] + br {
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="Previous post" href="/2099/01/01/%E7%9C%8B%E8%BF%99%E5%84%BF%20%E7%9C%8B%E8%BF%99%E5%84%BF/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2022/06/12/math/%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B8%8E%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/2022/06/11/vim/ultisnips/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -286,11 +286,10 @@ mjx-container[display="true"] + br {
 <p>12 月再见...</p>
 <p>好了，6 级揭过，聊点正经的。</p>
 <p>昨天那个 latex snippet
-不是还没配置好吗，今天又鼓捣了好长时间。要做的一方面是结合当天要整理的内容，新增
-snippet，加快整理速度，另一方面是解决片段触发冲突以及实现片段只在数学上下中展开。</p>
-<p>怎么说呢，这个片段的编写大多是基于别人写好的东西（咱不太会 只会瞎鼓捣
+不是还没配置好吗，今天又鼓捣了好长时间。怎么说呢，这个片段的编写大多是基于别人写好的东西（咱不太会
+只会瞎鼓捣
 哈），但实际用起来不是很顺手，而且自己配置的时候还经常出问题...</p>
-<p>今天做的主要是让片段只在数学上下中展开。怎么说呢，这个事情非常重要，不然很影响编辑体验。其实别人已经给出了解决方案，但是呢，在我这不管用...</p>
+<p>今天做的主要是让片段只在数学上下中展开，对于这个事其实别人已经给出了解决方案，但是呢，在我这不管用...</p>
 <p>别人的解决方案是针对 tex 文件的，我的是 markdown
 文件，结果就是我搞得时候一直报错，搞了好长时间才发现，他的代码依赖于第三方插件...
 然后我就顺手安装了，我又试了试，还是不行，又搞了好长时间，直到下午去考 6
@@ -300,7 +299,7 @@ snippet，加快整理速度，另一方面是解决片段触发冲突以及实�
 对缩进要求挺严格的，会不会是这个问题呢？我试了试，不行。我又想起早上找的一个别人的解决方法，既然他那代码是针对
 tex 语法的，那我直接将语法设置为 tex
 不就好了(<code>set syntax=tex</code>)，好吧，还真行。这下我开心了许多。</p>
-<p>不过我还是不满意，我觉得这还是太麻烦了。我又想起早上看到的一个帖子，有人向那个插件作者提过这个问题，他们讨论了好半天，不过早上我看的云里雾里的。我觉得现在应该能看懂了，所以花时间认真看了看他们的讨论，最后试了试他们的解决方案。然后，完美解决😀。他们的做法是在
+<p>不过我还是不满意，我觉得这还是太麻烦了。我又想起早上看到的一个帖子，有人向那个插件作者提过这个问题，不过里面的内容看的我云里雾里的。而我觉得现在应该能看懂了，所以花时间认真看了看那个帖子，最后试了试他们的解决方案。然后，完美解决😀。他们的做法是在
 markdown 语法配置文件中直接修改相关内容(虽然咱看不懂 哈)。</p>
 <p>对了，其实那帖子是全英文的，但实际看起来感觉不是很困难，所以我就想不通为啥
 6 级阅读压根看不懂？</p>
