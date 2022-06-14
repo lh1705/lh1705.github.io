@@ -1592,9 +1592,12 @@ pre code {
   border: none;
 }
 code {
-  padding: 0 5px;
-  border: 1px dotted #666;
-  border-radius: 2px;
+  margin: 0;
+  padding: 0.1em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  border: 2px #666;
+  background: #eff1f3;
+  border-radius: 6px;
   -webkit-border-radius: 2px;
 }
 .highlight {
