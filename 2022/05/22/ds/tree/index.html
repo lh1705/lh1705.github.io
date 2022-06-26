@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="1 基本概念  祖先。从根到当前结点的唯一路径的任意结点，成为该结点的祖先。 子孙。当前结点是从根到当前结点唯一路径的任意结点的子孙。 双亲。到当前结点的唯一路径上离当前结点最近的结点，成为该结点的双亲。 孩子。当前结点是从根到当前结点的唯一路径上离当前结点最近的结点的孩子。 兄弟。有相同双亲的结点称为兄弟。 堂兄弟。处在同一层的结点互为堂兄弟。 结点的度。一个结点的分支数（孩子数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DS&#x2F;Tree">
+<meta property="og:title" content="数据结构|树">
 <meta property="og:url" content="http://example.com/2022/05/22/ds/tree/index.html">
 <meta property="og:site_name" content="lh1705">
 <meta property="og:description" content="1 基本概念  祖先。从根到当前结点的唯一路径的任意结点，成为该结点的祖先。 子孙。当前结点是从根到当前结点唯一路径的任意结点的子孙。 双亲。到当前结点的唯一路径上离当前结点最近的结点，成为该结点的双亲。 孩子。当前结点是从根到当前结点的唯一路径上离当前结点最近的结点的孩子。 兄弟。有相同双亲的结点称为兄弟。 堂兄弟。处在同一层的结点互为堂兄弟。 结点的度。一个结点的分支数（孩子数">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-22T01:31:13.000Z">
-<meta property="article:modified_time" content="2022-05-22T02:29:36.439Z">
+<meta property="article:modified_time" content="2022-06-25T06:27:59.711Z">
 <meta property="article:author" content="lh1705">
-<meta property="article:tag" content="DS">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
     
     <meta property="og:title" content="2022/05/22/ds/tree/"/>
@@ -38,7 +38,7 @@
       
     
     <!-- title -->
-    <title>DS/Tree</title>
+    <title>数据结构|树</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -201,7 +201,7 @@ mjx-container[display="true"] + br {
         <li><a class="icon" aria-label="Previous post" href="/2022/05/22/ds/queue/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="Next post" href="/2022/05/20/vim/vim/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2022/05/20/vim/vim-%E5%9F%BA%E7%A1%80/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -215,16 +215,16 @@ mjx-container[display="true"] + br {
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/22/ds/tree/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/22/ds/tree/&text=DS/Tree"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/22/ds/tree/&is_video=false&description=DS/Tree"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=DS/Tree&body=Check out this article: http://example.com/2022/05/22/ds/tree/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/22/ds/tree/&name=DS/Tree&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/22/ds/tree/&t=DS/Tree"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/22/ds/tree/&text=数据结构|树"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/22/ds/tree/&is_video=false&description=数据结构|树"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=数据结构|树&body=Check out this article: http://example.com/2022/05/22/ds/tree/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/22/ds/tree/&name=数据结构|树&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/22/ds/tree/&t=数据结构|树"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -241,7 +241,7 @@ mjx-container[display="true"] + br {
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        DS/Tree
+        数据结构|树
     </h1>
 
 
@@ -264,7 +264,7 @@ mjx-container[display="true"] + br {
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/DS/" rel="tag">DS</a>
+        <a class="tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a>
     </div>
 
 
@@ -459,16 +459,16 @@ mjx-container[display="true"] + br {
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/22/ds/tree/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/22/ds/tree/&text=DS/Tree"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/22/ds/tree/&is_video=false&description=DS/Tree"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=DS/Tree&body=Check out this article: http://example.com/2022/05/22/ds/tree/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=DS/Tree"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/22/ds/tree/&name=DS/Tree&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/22/ds/tree/&t=DS/Tree"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/22/ds/tree/&text=数据结构|树"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/22/ds/tree/&is_video=false&description=数据结构|树"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=数据结构|树&body=Check out this article: http://example.com/2022/05/22/ds/tree/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/22/ds/tree/&title=数据结构|树"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/22/ds/tree/&name=数据结构|树&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/22/ds/tree/&t=数据结构|树"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
