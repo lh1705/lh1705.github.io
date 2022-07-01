@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="初始化 做函数返回值 函数调用可以作为左值 引用的本质是一个指针常量 常量引用     初始化1234int a &#x3D; 7, b &#x3D; 8;int &amp;ref;     &#x2F;&#x2F; 错误, 引用必须初始化int &amp;ref &#x3D; a; &#x2F;&#x2F; 正确int &amp;ref &#x3D; b; &#x2F;&#x2F; 错误，引用初始化后，不能再更改 做函数返回值不要返回局部变量的引用 1234int &amp;test_1">
+    <meta name="description" content="初始化 做函数返回值 函数调用可以作为左值 引用的本质是一个指针常量 常量引用   初始化 1234int a &#x3D; 7, b &#x3D; 8;int &amp;ref;     &#x2F;&#x2F; 错误, 引用必须初始化int &amp;ref &#x3D; a; &#x2F;&#x2F; 正确int &amp;ref &#x3D; b; &#x2F;&#x2F; 错误，引用初始化后，不能再更改 做函数返回值 不要返回局部变量的引用 1234int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++|引用">
 <meta property="og:url" content="http://example.com/2022/06/28/c++/reference/index.html">
 <meta property="og:site_name" content="lh1705">
-<meta property="og:description" content="初始化 做函数返回值 函数调用可以作为左值 引用的本质是一个指针常量 常量引用     初始化1234int a &#x3D; 7, b &#x3D; 8;int &amp;ref;     &#x2F;&#x2F; 错误, 引用必须初始化int &amp;ref &#x3D; a; &#x2F;&#x2F; 正确int &amp;ref &#x3D; b; &#x2F;&#x2F; 错误，引用初始化后，不能再更改 做函数返回值不要返回局部变量的引用 1234int &amp;test_1">
+<meta property="og:description" content="初始化 做函数返回值 函数调用可以作为左值 引用的本质是一个指针常量 常量引用   初始化 1234int a &#x3D; 7, b &#x3D; 8;int &amp;ref;     &#x2F;&#x2F; 错误, 引用必须初始化int &amp;ref &#x3D; a; &#x2F;&#x2F; 正确int &amp;ref &#x3D; b; &#x2F;&#x2F; 错误，引用初始化后，不能再更改 做函数返回值 不要返回局部变量的引用 1234int">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-28T14:59:50.000Z">
 <meta property="article:modified_time" content="2022-07-01T06:48:12.888Z">
@@ -274,28 +274,36 @@ mjx-container[display="true"] + br {
 
   <div class="content" itemprop="articleBody">
     <!-- vim-markdown-toc GFM -->
-
 <ul>
-<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96">初始化</a></li>
-<li><a href="#%E5%81%9A%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC">做函数返回值</a></li>
-<li><a href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%B7%A6%E5%80%BC">函数调用可以作为左值</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%B8%80%E4%B8%AA%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F">引用的本质是一个指针常量</a></li>
-<li><a href="#%E5%B8%B8%E9%87%8F%E5%BC%95%E7%94%A8">常量引用</a></li>
+<li><a href="#初始化">初始化</a></li>
+<li><a href="#做函数返回值">做函数返回值</a></li>
+<li><a href="#函数调用可以作为左值">函数调用可以作为左值</a></li>
+<li><a href="#引用的本质是一个指针常量">引用的本质是一个指针常量</a></li>
+<li><a href="#常量引用">常量引用</a></li>
 </ul>
 <!-- vim-markdown-toc -->
-
-
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">7</span>, b = <span class="number">8</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref;     <span class="comment">// 错误, 引用必须初始化</span></span><br><span class="line"><span class="type">int</span> &amp;ref = a; <span class="comment">// 正确</span></span><br><span class="line"><span class="type">int</span> &amp;ref = b; <span class="comment">// 错误，引用初始化后，不能再更改</span></span><br></pre></td></tr></table></figure>
-<h2 id="做函数返回值"><a href="#做函数返回值" class="headerlink" title="做函数返回值"></a>做函数返回值</h2><p>不要返回局部变量的引用</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">test_1</span><span class="params">()</span> </span>{<span class="type">int</span> a = <span class="number">10</span>; <span class="keyword">return</span> a;} </span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="built_in">test_1</span>(); <span class="comment">// 错误，不要返回局部变量的引用</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref);   <span class="comment">// ref = 10，编译器做了保留</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref);   <span class="comment">// ref = 5723932，a 的内存已经释放掉了</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函数调用可以作为左值"><a href="#函数调用可以作为左值" class="headerlink" title="函数调用可以作为左值"></a>函数调用可以作为左值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">test_2</span><span class="params">()</span> </span>{<span class="type">static</span> <span class="type">int</span> a = <span class="number">10</span>; <span class="keyword">return</span> a;} </span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="built_in">test_2</span>();</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 10</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 10</span></span><br><span class="line"><span class="built_in">test_2</span>() = <span class="number">1000</span>;   <span class="comment">// 正确，因为函数的返回值是引用，所以函数调用可作为左值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 1000</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 1000</span></span><br></pre></td></tr></table></figure>
-<p><code>Note</code> <strong>左值</strong>指的是赋值表达式等号左边的表达式</p>
-<h2 id="引用的本质是一个指针常量"><a href="#引用的本质是一个指针常量" class="headerlink" title="引用的本质是一个指针常量"></a>引用的本质是一个指针常量</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a    = <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = a;   <span class="comment">// 等价于 int* const ref = a;</span></span><br><span class="line">ref      = <span class="number">100</span>; <span class="comment">// 等价于 *ref = 100</span></span><br></pre></td></tr></table></figure>
-<p><code>Note</code> int * const p 表示 p 是一个<strong>指针常量</strong>，即指针的指向不可改变，只能<br>改变其所指向对象的值。而引用初始化后，不能更改引用的原因就在于此。</p>
-<h2 id="常量引用"><a href="#常量引用" class="headerlink" title="常量引用"></a>常量引用</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a    = <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="number">7</span>;      <span class="comment">// 错误，引用本身需要一个合法的内存空间（栈区或堆区）</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; ref = <span class="number">7</span> <span class="comment">// 正确，编译器优化，int tmp = a; const int &amp;ref = tmp;</span></span><br><span class="line"><span class="type">void</span> <span class="built_in">show_value</span>(<span class="type">const</span> <span class="type">int</span>&amp; val) { </span><br><span class="line">    val = ... </span><br><span class="line">}<span class="comment">//形参为`常量引用`，此时函数内部 val 为不可修改的左值，防止意外修改实参 a</span></span><br></pre></td></tr></table></figure>
-<p><code>Note</code> <strong>常量引用</strong>是指用 const 关键字来修饰引用。</p>
-<p><code>NOTE</code> 不能把 const 对象、字面值或者需要类型转换的对象传递给普通的引用形参。<br>因为引用实质上绑定一个对象，其作为对象的别名，但因为引用实现实际上是顶层<br>cosnt（指针是个常量），引用形参初始化会忽略 const，即忽略对象的 const 属性，<br>那绑定的就不是原对象了。</p>
+<h2 id="初始化">初始化</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">7</span>, b = <span class="number">8</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref;     <span class="comment">// 错误, 引用必须初始化</span></span><br><span class="line"><span class="type">int</span> &amp;ref = a; <span class="comment">// 正确</span></span><br><span class="line"><span class="type">int</span> &amp;ref = b; <span class="comment">// 错误，引用初始化后，不能再更改</span></span><br></pre></td></tr></table></figure>
+<h2 id="做函数返回值">做函数返回值</h2>
+<p>不要返回局部变量的引用 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">test_1</span><span class="params">()</span> </span>{<span class="type">int</span> a = <span class="number">10</span>; <span class="keyword">return</span> a;} </span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="built_in">test_1</span>(); <span class="comment">// 错误，不要返回局部变量的引用</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref);   <span class="comment">// ref = 10，编译器做了保留</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref);   <span class="comment">// ref = 5723932，a 的内存已经释放掉了</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="函数调用可以作为左值">函数调用可以作为左值</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">test_2</span><span class="params">()</span> </span>{<span class="type">static</span> <span class="type">int</span> a = <span class="number">10</span>; <span class="keyword">return</span> a;} </span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="built_in">test_2</span>();</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 10</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 10</span></span><br><span class="line"><span class="built_in">test_2</span>() = <span class="number">1000</span>;   <span class="comment">// 正确，因为函数的返回值是引用，所以函数调用可作为左值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 1000</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 1000</span></span><br></pre></td></tr></table></figure>
+<p><code>Note</code>
+<strong>左值</strong>指的是赋值表达式等号左边的表达式</p>
+<h2 id="引用的本质是一个指针常量">引用的本质是一个指针常量</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a    = <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = a;   <span class="comment">// 等价于 int* const ref = a;</span></span><br><span class="line">ref      = <span class="number">100</span>; <span class="comment">// 等价于 *ref = 100</span></span><br></pre></td></tr></table></figure>
+<p><code>Note</code> int * const p 表示 p
+是一个<strong>指针常量</strong>，即指针的指向不可改变，只能
+改变其所指向对象的值。而引用初始化后，不能更改引用的原因就在于此。</p>
+<h2 id="常量引用">常量引用</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a    = <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="number">7</span>;      <span class="comment">// 错误，引用本身需要一个合法的内存空间（栈区或堆区）</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; ref = <span class="number">7</span> <span class="comment">// 正确，编译器优化，int tmp = a; const int &amp;ref = tmp;</span></span><br><span class="line"><span class="type">void</span> <span class="built_in">show_value</span>(<span class="type">const</span> <span class="type">int</span>&amp; val) { </span><br><span class="line">    val = ... </span><br><span class="line">}<span class="comment">//形参为`常量引用`，此时函数内部 val 为不可修改的左值，防止意外修改实参 a</span></span><br></pre></td></tr></table></figure>
+<p><code>Note</code> <strong>常量引用</strong>是指用 const
+关键字来修饰引用。</p>
+<p><code>NOTE</code> 不能把 const
+对象、字面值或者需要类型转换的对象传递给普通的引用形参。
+因为引用实质上绑定一个对象，其作为对象的别名，但因为引用实现实际上是顶层
+cosnt（指针是个常量），引用形参初始化会忽略 const，即忽略对象的 const
+属性， 那绑定的就不是原对象了。</p>
 
   </div>
 </article>
