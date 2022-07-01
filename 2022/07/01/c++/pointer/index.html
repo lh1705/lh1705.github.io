@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="今天写的非常早哦。  早上无意间想起了自己之前的看的一部小说，然后搜了搜，突然发现它已经完结了。 怎么说呢，它是我唯一喜欢的一部小说。有多喜欢呢，我花了 7 天时间，看到了三千零四十四章。然后呢，我便不再看了。 为什么呢，因为喜欢啊。故事写的太好了，我怕失去这种喜欢的感觉。 它完结了，我没敢再去看，只是瞧了瞧作者的完本感言，有点失落。作者的笔下没有那个古灵精怪的魔女了呢。 午休说好的">
+    <meta name="description" content="指针 &amp; const   指针 &amp; const 123456789101112int a &#x3D; 2, b &#x3D; 3;int *const p1 &#x3D; &amp;a;       &#x2F;&#x2F; 常量指针p1 &#x3D; &amp;b;                  &#x2F;&#x2F; 错误，指针的值不能改变（存的地址是常量）*p1 &#x3D; b;                  &#x2F;&#x2F; 正确，指针指向的值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日记 30">
-<meta property="og:url" content="http://example.com/2022/06/28/diary/diary30/index.html">
+<meta property="og:title" content="C++|指针">
+<meta property="og:url" content="http://example.com/2022/07/01/c++/pointer/index.html">
 <meta property="og:site_name" content="lh1705">
-<meta property="og:description" content="今天写的非常早哦。  早上无意间想起了自己之前的看的一部小说，然后搜了搜，突然发现它已经完结了。 怎么说呢，它是我唯一喜欢的一部小说。有多喜欢呢，我花了 7 天时间，看到了三千零四十四章。然后呢，我便不再看了。 为什么呢，因为喜欢啊。故事写的太好了，我怕失去这种喜欢的感觉。 它完结了，我没敢再去看，只是瞧了瞧作者的完本感言，有点失落。作者的笔下没有那个古灵精怪的魔女了呢。 午休说好的">
+<meta property="og:description" content="指针 &amp; const   指针 &amp; const 123456789101112int a &#x3D; 2, b &#x3D; 3;int *const p1 &#x3D; &amp;a;       &#x2F;&#x2F; 常量指针p1 &#x3D; &amp;b;                  &#x2F;&#x2F; 错误，指针的值不能改变（存的地址是常量）*p1 &#x3D; b;                  &#x2F;&#x2F; 正确，指针指向的值">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-28T02:00:35.000Z">
-<meta property="article:modified_time" content="2022-06-28T14:14:05.776Z">
+<meta property="article:published_time" content="2022-07-01T01:33:42.000Z">
+<meta property="article:modified_time" content="2022-07-01T01:35:02.125Z">
 <meta property="article:author" content="lh1705">
-<meta property="article:tag" content="Diray">
+<meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
     
-    <meta property="og:title" content="2022/06/28/diary/diary30/"/>
+    <meta property="og:title" content="2022/07/01/c++/pointer/"/>
     
       
         
@@ -38,7 +38,7 @@
       
     
     <!-- title -->
-    <title>日记 30</title>
+    <title>C++|指针</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -198,10 +198,10 @@ mjx-container[display="true"] + br {
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="Previous post" href="/2022/06/28/c++/class/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2099/01/01/%E7%9C%8B%E8%BF%99%E5%84%BF%20%E7%9C%8B%E8%BF%99%E5%84%BF/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="Next post" href="/2022/06/27/diary/diary29/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2022/06/28/c++/reference/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -214,22 +214,22 @@ mjx-container[display="true"] + br {
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/06/28/diary/diary30/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/06/28/diary/diary30/&text=日记 30"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/06/28/diary/diary30/&is_video=false&description=日记 30"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=日记 30&body=Check out this article: http://example.com/2022/06/28/diary/diary30/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/06/28/diary/diary30/&name=日记 30&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/06/28/diary/diary30/&t=日记 30"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/07/01/c++/pointer/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/07/01/c++/pointer/&text=C++|指针"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/07/01/c++/pointer/&is_video=false&description=C++|指针"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++|指针&body=Check out this article: http://example.com/2022/07/01/c++/pointer/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/07/01/c++/pointer/&name=C++|指针&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/07/01/c++/pointer/&t=C++|指针"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88-const"><span class="toc-number">1.</span> <span class="toc-text">指针 &amp; const</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -241,7 +241,7 @@ mjx-container[display="true"] + br {
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        日记 30
+        C++|指针
     </h1>
 
 
@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
       
     <div class="postdate">
       
-        <time datetime="2022-06-28T02:00:35.000Z" itemprop="datePublished">2022-06-28</time>
+        <time datetime="2022-07-01T01:33:42.000Z" itemprop="datePublished">2022-07-01</time>
         
       
     </div>
@@ -264,7 +264,7 @@ mjx-container[display="true"] + br {
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Diray/" rel="tag">Diray</a>
+        <a class="tag-link-link" href="/tags/C-C/" rel="tag">C/C++</a>
     </div>
 
 
@@ -273,14 +273,13 @@ mjx-container[display="true"] + br {
   
 
   <div class="content" itemprop="articleBody">
-    <p>今天写的非常早哦。</p>
-<hr>
-<p>早上无意间想起了自己之前的看的一部小说，然后搜了搜，突然发现它已经完结了。</p>
-<p>怎么说呢，它是我唯一喜欢的一部小说。有多喜欢呢，我花了 7
-天时间，看到了三千零四十四章。然后呢，我便不再看了。</p>
-<p>为什么呢，因为喜欢啊。故事写的太好了，我怕失去这种喜欢的感觉。</p>
-<p>它完结了，我没敢再去看，只是瞧了瞧作者的完本感言，有点失落。作者的笔下没有那个古灵精怪的魔女了呢。</p>
-<p>午休说好的睡半个小时呢，怎么睡了快四个小时呢...</p>
+    <!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#指针--const">指针 &amp; const</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="指针-const">指针 &amp; const</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">2</span>, b = <span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p1 = &amp;a;       <span class="comment">// 常量指针</span></span><br><span class="line">p1 = &amp;b;                  <span class="comment">// 错误，指针的值不能改变（存的地址是常量）</span></span><br><span class="line">*p1 = b;                  <span class="comment">// 正确，指针指向的值可以改变</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> *p2 = &amp;a;       <span class="comment">// 指向常量的指针</span></span><br><span class="line">p2 = &amp;b                   <span class="comment">// 正确，指针的值（存的地址可以改变）</span></span><br><span class="line">*p2 = b;                  <span class="comment">// 错误，指针指向的值不能改变</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* <span class="type">const</span> p3 = &amp;a; <span class="comment">// 指针常量 &amp; 指向常量</span></span><br><span class="line">p3 = &amp;b;                  <span class="comment">// 错误，指针的值不可改变</span></span><br><span class="line">*p3 = b;                  <span class="comment">// 错误，指针指向的值不可改变</span></span><br></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -326,22 +325,22 @@ mjx-container[display="true"] + br {
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88-const"><span class="toc-number">1.</span> <span class="toc-text">指针 &amp; const</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/06/28/diary/diary30/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/06/28/diary/diary30/&text=日记 30"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/06/28/diary/diary30/&is_video=false&description=日记 30"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=日记 30&body=Check out this article: http://example.com/2022/06/28/diary/diary30/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/06/28/diary/diary30/&title=日记 30"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/06/28/diary/diary30/&name=日记 30&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/06/28/diary/diary30/&t=日记 30"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/07/01/c++/pointer/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/07/01/c++/pointer/&text=C++|指针"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/07/01/c++/pointer/&is_video=false&description=C++|指针"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++|指针&body=Check out this article: http://example.com/2022/07/01/c++/pointer/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/07/01/c++/pointer/&title=C++|指针"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/07/01/c++/pointer/&name=C++|指针&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/07/01/c++/pointer/&t=C++|指针"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
