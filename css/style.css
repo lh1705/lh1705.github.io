@@ -343,9 +343,9 @@ body .h2 {
 }
 body h3 {
   color: #383838;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 body h4,
 body h5,
