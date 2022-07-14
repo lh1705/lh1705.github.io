@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="初始化 做函数返回值 函数调用可以作为左值 引用的本质是一个指针常量 常量引用   初始化 1234int a &#x3D; 7, b &#x3D; 8;int &amp;ref;     &#x2F;&#x2F; 错误, 引用必须初始化int &amp;ref &#x3D; a; &#x2F;&#x2F; 正确int &amp;ref &#x3D; b; &#x2F;&#x2F; 错误，引用初始化后，不能再更改 做函数返回值 不要返回局部变量的引用 1234int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++|引用">
+<meta property="og:url" content="http://example.com/2022/05/19/c++/reference/index.html">
+<meta property="og:site_name" content="lh1705">
+<meta property="og:description" content="初始化 做函数返回值 函数调用可以作为左值 引用的本质是一个指针常量 常量引用   初始化 1234int a &#x3D; 7, b &#x3D; 8;int &amp;ref;     &#x2F;&#x2F; 错误, 引用必须初始化int &amp;ref &#x3D; a; &#x2F;&#x2F; 正确int &amp;ref &#x3D; b; &#x2F;&#x2F; 错误，引用初始化后，不能再更改 做函数返回值 不要返回局部变量的引用 1234int">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-19T00:02:00.000Z">
+<meta property="article:modified_time" content="2022-07-14T04:20:09.763Z">
+<meta property="article:author" content="lh1705">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary">
+    
+    <meta property="og:title" content="2022/05/19/c++/reference/"/>
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>C++|引用</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2022/05/19/c++/pointer/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2022/05/19/c++/array/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/19/c++/reference/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/19/c++/reference/&text=C++|引用"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/19/c++/reference/&is_video=false&description=C++|引用"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++|引用&body=Check out this article: http://example.com/2022/05/19/c++/reference/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/19/c++/reference/&name=C++|引用&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/19/c++/reference/&t=C++|引用"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">做函数返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%B7%A6%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">函数调用可以作为左值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%B8%80%E4%B8%AA%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F"><span class="toc-number">4.</span> <span class="toc-text">引用的本质是一个指针常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%BC%95%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">常量引用</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        C++|引用
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">lh1705</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-05-19T00:02:00.000Z" itemprop="datePublished">2022-05-19</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/C-C/" rel="tag">C/C++</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#初始化">初始化</a></li>
+<li><a href="#做函数返回值">做函数返回值</a></li>
+<li><a href="#函数调用可以作为左值">函数调用可以作为左值</a></li>
+<li><a href="#引用的本质是一个指针常量">引用的本质是一个指针常量</a></li>
+<li><a href="#常量引用">常量引用</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="初始化">初始化</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">7</span>, b = <span class="number">8</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref;     <span class="comment">// 错误, 引用必须初始化</span></span><br><span class="line"><span class="type">int</span> &amp;ref = a; <span class="comment">// 正确</span></span><br><span class="line"><span class="type">int</span> &amp;ref = b; <span class="comment">// 错误，引用初始化后，不能再更改</span></span><br></pre></td></tr></table></figure>
+<h2 id="做函数返回值">做函数返回值</h2>
+<p>不要返回局部变量的引用 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">test_1</span><span class="params">()</span> </span>{<span class="type">int</span> a = <span class="number">10</span>; <span class="keyword">return</span> a;} </span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="built_in">test_1</span>(); <span class="comment">// 错误，不要返回局部变量的引用</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref);   <span class="comment">// ref = 10，编译器做了保留</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref);   <span class="comment">// ref = 5723932，a 的内存已经释放掉了</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="函数调用可以作为左值">函数调用可以作为左值</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">test_2</span><span class="params">()</span> </span>{<span class="type">static</span> <span class="type">int</span> a = <span class="number">10</span>; <span class="keyword">return</span> a;} </span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="built_in">test_2</span>();</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 10</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 10</span></span><br><span class="line"><span class="built_in">test_2</span>() = <span class="number">1000</span>;   <span class="comment">// 正确，因为函数的返回值是引用，所以函数调用可作为左值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 1000</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, ref); <span class="comment">// ref = 1000</span></span><br></pre></td></tr></table></figure>
+<p><code>Note</code>
+<strong>左值</strong>指的是赋值表达式等号左边的表达式</p>
+<h2 id="引用的本质是一个指针常量">引用的本质是一个指针常量</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a    = <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = a;   <span class="comment">// 等价于 int* const ref = a;</span></span><br><span class="line">ref      = <span class="number">100</span>; <span class="comment">// 等价于 *ref = 100</span></span><br></pre></td></tr></table></figure>
+<p><code>Note</code> int * const p 表示 p
+是一个<strong>指针常量</strong>，即指针的指向不可改变，只能
+改变其所指向对象的值。而引用初始化后，不能更改引用的原因就在于此。</p>
+<h2 id="常量引用">常量引用</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a    = <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = <span class="number">7</span>;      <span class="comment">// 错误，引用本身需要一个合法的内存空间（栈区或堆区）</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; ref = <span class="number">7</span> <span class="comment">// 正确，编译器优化，int tmp = a; const int &amp;ref = tmp;</span></span><br><span class="line"><span class="type">void</span> <span class="built_in">show_value</span>(<span class="type">const</span> <span class="type">int</span>&amp; val) { </span><br><span class="line">    val = ... </span><br><span class="line">}<span class="comment">//形参为`常量引用`，此时函数内部 val 为不可修改的左值，防止意外修改实参 a</span></span><br></pre></td></tr></table></figure>
+<p><code>Note</code> <strong>常量引用</strong>是指用 const
+关键字来修饰引用。</p>
+<p><code>NOTE</code> 不能把 const
+对象、字面值或者需要类型转换的对象传递给普通的引用形参。
+因为引用实质上绑定一个对象，其作为对象的别名，但因为引用实现实际上是顶层
+cosnt（指针是个常量），引用形参初始化会忽略 const，即忽略对象的 const
+属性， 那绑定的就不是原对象了。</p>
+
+  </div>
+</article>
+
+<br>
+<br>
+<script src="https://giscus.app/client.js"
+        data-repo="lh1705/lh1705.github.io"
+        data-repo-id="R_kgDOHXXzhg"
+        data-category="General"
+        data-category-id="DIC_kwDOHXXzhs4CPiBX"
+        data-mapping="og:title"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">做函数返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%B7%A6%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">函数调用可以作为左值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%B8%80%E4%B8%AA%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F"><span class="toc-number">4.</span> <span class="toc-text">引用的本质是一个指针常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%BC%95%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">常量引用</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/19/c++/reference/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/19/c++/reference/&text=C++|引用"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/19/c++/reference/&is_video=false&description=C++|引用"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++|引用&body=Check out this article: http://example.com/2022/05/19/c++/reference/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/19/c++/reference/&title=C++|引用"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/19/c++/reference/&name=C++|引用&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/19/c++/reference/&t=C++|引用"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    lh1705
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+
+</body>
+</html>

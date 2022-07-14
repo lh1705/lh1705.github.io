@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Insert Move Scroll Delete Select Copy Paste Search Replace Reference   Insert    Key Description     i 插入到光标前   a 插入到光标后   s 插入到光标下   o 插入到下一行   O 插入到上一行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim|基础">
+<meta property="og:url" content="http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="lh1705">
+<meta property="og:description" content="Insert Move Scroll Delete Select Copy Paste Search Replace Reference   Insert    Key Description     i 插入到光标前   a 插入到光标后   s 插入到光标下   o 插入到下一行   O 插入到上一行">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-18T22:01:00.000Z">
+<meta property="article:modified_time" content="2022-07-14T04:13:51.102Z">
+<meta property="article:author" content="lh1705">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+    
+    <meta property="og:title" content="2022/05/19/vim/vim-基础/"/>
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Vim|基础</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2022/05/19/vim/vim-%E9%85%8D%E7%BD%AE/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&text=Vim|基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&is_video=false&description=Vim|基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vim|基础&body=Check out this article: http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&name=Vim|基础&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&t=Vim|基础"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#insert"><span class="toc-number">1.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#move"><span class="toc-number">2.</span> <span class="toc-text">Move</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scroll"><span class="toc-number">3.</span> <span class="toc-text">Scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#delete"><span class="toc-number">4.</span> <span class="toc-text">Delete</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select"><span class="toc-number">5.</span> <span class="toc-text">Select</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copy"><span class="toc-number">6.</span> <span class="toc-text">Copy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste"><span class="toc-number">7.</span> <span class="toc-text">Paste</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#search"><span class="toc-number">8.</span> <span class="toc-text">Search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#replace"><span class="toc-number">9.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">10.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Vim|基础
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">lh1705</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-05-18T22:01:00.000Z" itemprop="datePublished">2022-05-19</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Vim/" rel="tag">Vim</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#insert">Insert</a></li>
+<li><a href="#move">Move</a></li>
+<li><a href="#scroll">Scroll</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#select">Select</a></li>
+<li><a href="#copy">Copy</a></li>
+<li><a href="#paste">Paste</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#replace">Replace</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="insert">Insert</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>i</td>
+<td>插入到光标前</td>
+</tr>
+<tr class="even">
+<td>a</td>
+<td>插入到光标后</td>
+</tr>
+<tr class="odd">
+<td>s</td>
+<td>插入到光标下</td>
+</tr>
+<tr class="even">
+<td>o</td>
+<td>插入到下一行</td>
+</tr>
+<tr class="odd">
+<td>O</td>
+<td>插入到上一行</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>插入到行首</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>插入到行尾</td>
+</tr>
+<tr class="even">
+<td>S</td>
+<td>插入到当前行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="move">Move</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[n]w</td>
+<td>向前移动到下一个单词开头</td>
+</tr>
+<tr class="even">
+<td>[n]W</td>
+<td>向前移动到下一个单词开头，期间忽略特殊符号</td>
+</tr>
+<tr class="odd">
+<td>[n]e</td>
+<td>向前移动到下一个单词结尾</td>
+</tr>
+<tr class="even">
+<td>[n]E</td>
+<td>向前移动到下一个单词结尾，期间忽略特殊符号</td>
+</tr>
+<tr class="odd">
+<td>[n]b</td>
+<td>向后移动到前一个单词开头</td>
+</tr>
+<tr class="even">
+<td>[n]B</td>
+<td>向后移动到前一个单词开头，期间忽略特殊符号</td>
+</tr>
+<tr class="odd">
+<td>[n]f[x]</td>
+<td>向前移动到指定字符位置</td>
+</tr>
+<tr class="even">
+<td>[n]F[x]</td>
+<td>向后移动到指定字符位置</td>
+</tr>
+<tr class="odd">
+<td>[n]t[x]</td>
+<td>向后移动到指定字符前一字符位置</td>
+</tr>
+<tr class="even">
+<td>[n]T[x]</td>
+<td>向前移动到指定字符前一字符位置</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>移动到行首</td>
+</tr>
+<tr class="even">
+<td>^</td>
+<td>移动到当前行的第一个非空字符</td>
+</tr>
+<tr class="odd">
+<td>$</td>
+<td>移动到行尾</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>移动到上一行开头</td>
+</tr>
+<tr class="odd">
+<td>+</td>
+<td>移动到下一行结尾</td>
+</tr>
+<tr class="even">
+<td>nG</td>
+<td>移动到指定行</td>
+</tr>
+<tr class="odd">
+<td>n+</td>
+<td>向上移动指定行</td>
+</tr>
+<tr class="even">
+<td>n-</td>
+<td>向下移动指定行</td>
+</tr>
+<tr class="odd">
+<td>H</td>
+<td>移动到当前屏幕顶部</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>移动到当前屏幕中间</td>
+</tr>
+<tr class="odd">
+<td>L</td>
+<td>移动到当前屏幕底部</td>
+</tr>
+<tr class="even">
+<td>[n](</td>
+<td>移动到句子开头</td>
+</tr>
+<tr class="odd">
+<td>[n])</td>
+<td>移动到句子结尾</td>
+</tr>
+<tr class="even">
+<td>[n]{</td>
+<td>移动到段落开头</td>
+</tr>
+<tr class="odd">
+<td>[n]}</td>
+<td>移动到段落尾部</td>
+</tr>
+<tr class="even">
+<td>gg</td>
+<td>移动到文档底部</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>移动到文档顶部</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>移动到屏幕顶部</td>
+</tr>
+<tr class="odd">
+<td>M</td>
+<td>移动到屏幕中间</td>
+</tr>
+<tr class="even">
+<td>L</td>
+<td>移动到屏幕底部</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scroll">Scroll</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[n]&lt;C-f&gt;</td>
+<td>向下滚动一屏</td>
+</tr>
+<tr class="even">
+<td>[n]&lt;C-b&gt;</td>
+<td>向上滚动一屏</td>
+</tr>
+<tr class="odd">
+<td>[n]&lt;C-d&gt;</td>
+<td>向上滚动半屏</td>
+</tr>
+<tr class="even">
+<td>[n]&lt;C-u&gt;</td>
+<td>向下滚动半屏</td>
+</tr>
+<tr class="odd">
+<td>[n]&lt;C-e&gt;</td>
+<td>向下滚动一行</td>
+</tr>
+<tr class="even">
+<td>[n]&lt;C-y&gt;</td>
+<td>向上滚动一行</td>
+</tr>
+<tr class="odd">
+<td>zt/z&lt;CR&gt;</td>
+<td>滚动到屏幕顶部</td>
+</tr>
+<tr class="even">
+<td>zz/z.</td>
+<td>滚动到屏幕中央</td>
+</tr>
+<tr class="odd">
+<td>zb/z-</td>
+<td>滚动到屏幕底部</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delete">Delete</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dl(x)</td>
+<td>删除当前字符</td>
+</tr>
+<tr class="even">
+<td>diw</td>
+<td>删除当前单词</td>
+</tr>
+<tr class="odd">
+<td>[n]dd</td>
+<td>删除当前行</td>
+</tr>
+<tr class="even">
+<td>di_</td>
+<td>删除文本对象(单词、段落、句子) ([{</td>
+</tr>
+<tr class="odd">
+<td>da_</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>d_</td>
+<td>删除到行首、行尾、文首、文末</td>
+</tr>
+<tr class="odd">
+<td>[n]dt[c]</td>
+<td>从当前字符向后删除到指定字符</td>
+</tr>
+<tr class="even">
+<td>[n]dT[c]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[n]df[c]</td>
+<td>delete form current char to specify char</td>
+</tr>
+<tr class="even">
+<td>[n]dF[c]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="select">Select</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v/V</td>
+<td>行选择</td>
+</tr>
+<tr class="even">
+<td><C-v> / <C-q></td>
+<td>块选择</td>
+</tr>
+</tbody>
+</table>
+<h2 id="copy">Copy</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[n]yy</td>
+<td>复制当前行</td>
+</tr>
+<tr class="even">
+<td>[n]Y</td>
+<td>复制当前行</td>
+</tr>
+<tr class="odd">
+<td>y_</td>
+<td>复制到行首、行尾、文首、文末</td>
+</tr>
+<tr class="even">
+<td>yi_</td>
+<td>复制文本对象（单词、句子、段落) （[{</td>
+</tr>
+<tr class="odd">
+<td>ya_</td>
+<td>复制文本对象</td>
+</tr>
+<tr class="even">
+<td>[n]yt[c]</td>
+<td>向前复制行内当前字符到指定字符前一字符间的内容</td>
+</tr>
+<tr class="odd">
+<td>[n]yT[c]</td>
+<td>向后复制行内当前字符到指定字符前一字符间的内容</td>
+</tr>
+<tr class="even">
+<td>[n]yf[c]</td>
+<td>向前复制行内当前字符到指定字符间的内容</td>
+</tr>
+<tr class="odd">
+<td>[n]yF[c]</td>
+<td>向后复制行内当前字符到指定字符间的内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paste">Paste</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>p</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="search">Search</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>/</td>
+<td>从光标开始处向文件尾搜索</td>
+</tr>
+<tr class="even">
+<td>?</td>
+<td>从光标开始处向文件首搜索</td>
+</tr>
+<tr class="odd">
+<td>n</td>
+<td>移动到上一个搜索结果</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>移动到下一个搜索结果</td>
+</tr>
+</tbody>
+</table>
+<h2 id="replace">Replace</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>r</td>
+<td>单字符替换</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td>进入替换模式，覆盖原内容</td>
+</tr>
+<tr class="odd">
+<td>[range]s/find_str/replace_str/g</td>
+<td>替换指定范围的字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pejsidney/p/9591055.html">vi /vim
+删除以及其它命令</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ifantastic/p/3770886.html">vim
+常用基本操作</a></li>
+</ul>
+
+  </div>
+</article>
+
+<br>
+<br>
+<script src="https://giscus.app/client.js"
+        data-repo="lh1705/lh1705.github.io"
+        data-repo-id="R_kgDOHXXzhg"
+        data-category="General"
+        data-category-id="DIC_kwDOHXXzhs4CPiBX"
+        data-mapping="og:title"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#insert"><span class="toc-number">1.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#move"><span class="toc-number">2.</span> <span class="toc-text">Move</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scroll"><span class="toc-number">3.</span> <span class="toc-text">Scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#delete"><span class="toc-number">4.</span> <span class="toc-text">Delete</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select"><span class="toc-number">5.</span> <span class="toc-text">Select</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copy"><span class="toc-number">6.</span> <span class="toc-text">Copy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste"><span class="toc-number">7.</span> <span class="toc-text">Paste</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#search"><span class="toc-number">8.</span> <span class="toc-text">Search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#replace"><span class="toc-number">9.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">10.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&text=Vim|基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&is_video=false&description=Vim|基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vim|基础&body=Check out this article: http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&title=Vim|基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&name=Vim|基础&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/05/19/vim/vim-%E5%9F%BA%E7%A1%80/&t=Vim|基础"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    lh1705
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+
+</body>
+</html>
