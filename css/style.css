@@ -512,7 +512,6 @@ body {
   -moz-hyphens: manual;
   -ms-hyphens: manual;
   -webkit-hyphens: manual;
-  background: none;
 }
 .content a {
   color: #383838;
@@ -1591,6 +1590,7 @@ pre code {
   display: block;
   padding: 0;
   border: none;
+  background: none;
 }
 code {
   margin: 0;
