@@ -512,6 +512,7 @@ body {
   -moz-hyphens: manual;
   -ms-hyphens: manual;
   -webkit-hyphens: manual;
+  background: none;
 }
 .content a {
   color: #383838;
@@ -1579,7 +1580,6 @@ article .content .caption {
 pre {
   overflow-x: auto;
   padding: 10px 15px;
-  padding-bottom: 0;
   border: 1px dotted #666;
   border-radius: 4px;
   font-size: 13px;
