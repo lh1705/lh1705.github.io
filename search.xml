@@ -5,12 +5,69 @@
     
     <entry>
       <title>看这儿 看这儿</title>
-      <link href="/2099/12/31/main/%E7%9C%8B%E8%BF%99%E5%84%BF%20%E7%9C%8B%E8%BF%99%E5%84%BF/"/>
-      <url>/2099/12/31/main/%E7%9C%8B%E8%BF%99%E5%84%BF%20%E7%9C%8B%E8%BF%99%E5%84%BF/</url>
+      <link href="/2099/12/31/main/notes/"/>
+      <url>/2099/12/31/main/notes/</url>
       
-        <content type="html"><![CDATA[<p>嘻嘻，点进来了吧。是不是很疑惑，为什么要置顶这么一篇名字奇奇怪怪的文章呢。</p><p>原因啊，其实很简单，就是逗你玩...</p><hr><p>=== 快速导航</p><!-- vim-markdown-toc GFM --><ul><li><a href="#这个博客怎么用">这个博客怎么用</a></li><li><a href="#这个博客为什么长这个样">这个博客为什么长这个样</a></li><li><a href="#你可能想问的一些奇奇怪怪的问题">你可能想问的一些奇奇怪怪的问题</a><ul><li><a href="#为什么你要写博客">为什么你要写博客？</a></li><li><a href="#为什么你的文章辣么少">为什么你的文章辣么少？</a></li><li><a href="#为什么你用日记水文章">为什么你用日记水文章？</a></li></ul></li><li><a href="#一些正经的话题">一些正经的话题</a><ul><li><a href="#关于这个博客">关于这个博客</a></li><li><a href="#写这篇文章本来的想法">写这篇文章本来的想法</a></li></ul></li></ul><!-- vim-markdown-toc --><h2 id="这个博客怎么用">这个博客怎么用</h2><p>好吧，我承认我想不到好的词，就姑且这样说。</p><ul><li>所有带下划线的文字都是可以点击跳转的。</li><li><strong>大部分</strong>绿色的文字也是可点击的。</li><li>有些奇奇怪怪的图标也是可以点击的。</li><li>你觉得可以点的，那<strong>大概率</strong>就是可以点的。</li></ul><p>OK，完了。就这么简单，其他有趣的东西你要自己试着点啊。</p><h2 id="这个博客为什么长这个样">这个博客为什么长这个样</h2><p>喏，你现在看到的，网站的所有元素，例如，这文字为什么只有这么大，这英文字体是什么字体，为什么评论在最下面等等一些奇奇怪怪的问题，这些都是这个网站主题所决定的。</p><p>回到问题上来，为什么这个博客长这个样。当然，是由我决定的嘞。我自己选了个叫做cactus的主题模板，然后根据需求对其进行了小修小改，然后就变成这样了。</p><p>怎么样，是不是很好看。</p><h2 id="你可能想问的一些奇奇怪怪的问题">你可能想问的一些奇奇怪怪的问题</h2><h3 id="为什么你要写博客">为什么你要写博客？</h3><p>这个嘛，理由很简单。一呢，是想锻炼自己的写作能力、语言组织能力和语言表达能力，二啊，一直觉得坚持做一件事是件很有趣的事。</p><p>好吧，我不会告诉你我把写博客当成写日记的了...</p><h3 id="为什么你的文章辣么少">为什么你的文章辣么少？</h3><p>是什么让你产生我文章写的很少的错觉？是日记吗。好吧，我承认确实很少。</p><p>不过，我是绝不会解释的。</p><h3 id="为什么你用日记水文章">为什么你用日记水文章？</h3><p>是坚持，是坚持的力量...</p><h2 id="一些正经的话题">一些正经的话题</h2><h3 id="关于这个博客">关于这个博客</h3><p>这个博客是什么时候搭建好的呢？emmm，5 月 19 日。好吧，完美错过。</p><p style="font-size: 0.85rem; font-weight: bold; padding: 0; margin-top: 0.5rem; margin-bottom: 0.3rem">=== 文章</p><p>对于博客里面的这些文章，额，怎么说呢，如果你想看的话，还是只看日记比较好。</p><p>为什么？因为除了日记以外的其他文章，连我自己都不想看...</p><p>你可能会问，文章就这么点吗。不是的，实在是许多东西拿不出手或者写的太烂。至于你所能看见的这些，只是我放上去充数的...</p><p style="font-size: 0.85rem; font-weight: bold; padding: 0; margin-top: 0.5rem; margin-bottom: 0.3rem">=== Topics</p><p>这里呢，主要是对文章的这些分类作以解释。其实这部分内容还没完全想好，不过在这先提一提，之后有时间了再慢慢完善。</p><p>你现在在 Topics所能看见的这些分类，在这儿，我们姑且用版块来称呼。对于这些版块，你或许有一定的了解，或许见名知意，知道这个版块是干嘛的。所以呢，我在这里就主要介绍一些特殊的版块。</p><p style="direction: rtl; padding: 0; margin: 0;">Vim ===</p><p>Vim 代指的是 vim 文本编辑器。主要收录自己的 vim 学习笔记。</p><p style="direction: rtl; padding: 0; margin: 0;">Utility ===</p><p>Ulitity是实用工具的意思。顾名思义，这里收录的是一些特别实用的工具，包括但不限于CLI 工具、特殊的 GUI 效率工具、标记语言等。</p><h3 id="写这篇文章本来的想法">写这篇文章本来的想法</h3><p>本来计划呢，是要在 7 月 2日之前完成的。但是呢，计划永远是计划，最后还是推迟了。</p><p>计划中要写的东西其实是很多的，但还是那句话，不要多写。</p>]]></content>
+        <content type="html"><![CDATA[<p>嘻嘻，点进来了吧。</p><hr><p style="font-size: 0.85rem; font-weight: bold; padding: 0; margin-top: 0.5rem; margin-bottom: 0.3rem">==&gt; 快速导航</p><!-- vim-markdown-toc GFM --><ul><li><a href="#这个博客怎么用">这个博客怎么用</a></li><li><a href="#这个博客为什么长这个样">这个博客为什么长这个样</a></li><li><a href="#你可能想问的一些奇奇怪怪的问题">你可能想问的一些奇奇怪怪的问题</a><ul><li><a href="#为什么你要写博客">为什么你要写博客？</a></li><li><a href="#为什么你的文章辣么少">为什么你的文章辣么少？</a></li><li><a href="#为什么你用日记水文章">为什么你用日记水文章？</a></li></ul></li><li><a href="#一些正经的话题">一些正经的话题</a><ul><li><a href="#关于这个博客">关于这个博客</a></li><li><a href="#写这篇文章本来的想法">写这篇文章本来的想法</a></li></ul></li></ul><h2 id="这个博客怎么用">这个博客怎么用</h2><p>好吧，我承认我想不到好的词，就姑且这样说。</p><ul><li>所有带下划线的文字都是可以点击跳转的。</li><li><strong>大部分</strong>绿色的文字也是可点击的。</li><li>有些奇奇怪怪的图标也是可以点击的。</li><li>你觉得可以点的，那<strong>大概率</strong>就是可以点的。</li></ul><p>OK，完了。就这么简单，其他有趣的东西你要自己试着点啊。</p><h2 id="这个博客为什么长这个样">这个博客为什么长这个样</h2><p>喏，你现在看到的，网站的所有元素，例如，这文字为什么只有这么大，这英文字体是什么字体，为什么评论在最下面等等一些奇奇怪怪的问题，这些都是这个网站主题所决定的。</p><p>回到问题上来，为什么这个博客长这个样。当然，是由我决定的嘞。我自己选了个叫做cactus的主题模板，然后根据需求对其进行了小修小改，然后就变成这样了。</p><p>怎么样，是不是很好看。</p><h2 id="你可能想问的一些奇奇怪怪的问题">你可能想问的一些奇奇怪怪的问题</h2><h3 id="为什么你要写博客">为什么你要写博客？</h3><p>这个嘛，理由很简单。一呢，是想锻炼自己的写作能力、语言组织能力和语言表达能力，二啊，一直觉得坚持做一件事是件很有趣的事。</p><p>好吧，我不会告诉你我把写博客当成写日记的了...</p><h3 id="为什么你的文章辣么少">为什么你的文章辣么少？</h3><p>是什么让你产生我文章写的很少的错觉？是日记吗。好吧，我承认确实很少。</p><p>不过，我是绝不会解释的。</p><h3 id="为什么你用日记水文章">为什么你用日记水文章？</h3><p>是坚持，是坚持的力量...</p><h2 id="一些正经的话题">一些正经的话题</h2><h3 id="关于这个博客">关于这个博客</h3><p>这个博客是什么时候搭建好的呢？emmm，5 月 19 日。好吧，完美错过。</p><p style="font-size: 0.85rem; font-weight: bold; padding: 0; margin-top: 0.5rem; margin-bottom: 0.3rem">=== 文章</p><p>对于博客里面的这些文章，额，怎么说呢，如果你想看的话，还是只看日记比较好。</p><p>为什么？因为除了日记以外的其他文章，连我自己都不想看...</p><p>你可能会问，文章就这么点吗。不是的，实在是许多东西拿不出手或者写的太烂。至于你所能看见的这些，那只是我放上去充数的...</p><p style="font-size: 0.85rem; font-weight: bold; padding: 0; margin-top: 0.5rem; margin-bottom: 0.3rem">=== Topics</p><p>这里呢，主要是对文章的这些分类作以解释。其实这部分内容还没完全想好，不过在这先提一提，之后有时间了再慢慢完善。</p><p>你现在在 Topics所能看见的这些分类，在这儿，我们姑且用版块来称呼。对于这些版块，你或许有一定的了解，或许见名知意，知道这个版块是干嘛的。所以呢，我在这里就主要介绍一些特殊的版块。</p><p style="direction: rtl; padding: 0; margin: 0;">Vim ===</p><p>Vim 代指的是 vim 文本编辑器。主要收录自己的 vim 学习笔记。</p><p style="direction: rtl; padding: 0; margin: 0;">Utility ===</p><p>Ulitity是实用工具的意思。顾名思义，这里收录的是一些特别实用的工具，包括但不限于CLI 工具、特殊的 GUI 效率工具、标记语言等。</p><h3 id="写这篇文章本来的想法">写这篇文章本来的想法</h3><p>本来计划呢，是要在 7 月 2日之前完成的。但是呢，计划永远是计划，最后还是推迟了。</p><p>计划中要写的东西其实是很多的，但还是那句话，不要多写。</p>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日记 48</title>
+      <link href="/2022/07/16/diary/diary48/"/>
+      <url>/2022/07/16/diary/diary48/</url>
+      
+        <content type="html"><![CDATA[<p>体重回到 61kg 左右了。</p><hr><p>历史经验告诉我，一部小说如果你第一次没看下去，那就请不要看第二次了。</p><p>今天好像没什么特别的事，呃，除了帮忙...</p><p>我不会水日记的，真的。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日记 47</title>
+      <link href="/2022/07/15/diary/diary47/"/>
+      <url>/2022/07/15/diary/diary47/</url>
+      
+        <content type="html"><![CDATA[<p>无聊的一天。</p><hr><p>好些天早上没锻炼了，今天练的有点难受。</p><p>早上操场的风，吹起来很是惬意。但我还有其他要做的事，难受。</p><p>麻辣味的方便面好难吃。或许是我水放多了？酸辣 &gt; 香辣 &gt;麻辣。</p><p>晚上，同学让我帮忙打印评优资料。看着他发来的申请单，我沉默了好半天。话说，你这是在评优，你确定不是在陪跑？</p><p>舍友告诉我 623 打印的那哥们是这一届的安全第一。哦，名字没听过...</p><p>那哥们申请单上好几个国奖，最次的都是一个专利。最可气的是，两次英语竞赛全国一等奖。而我呢，还在啃初中英语老本...</p><p>说实话，对于英语，我一直很喜欢。但是呢，高中没好好学，大学提不上劲，这就让人很伤心。</p><p>想起高中常常挂在自己嘴边的一句话：“谁说喜欢就一定擅长。”咱啊，差劲归差劲，但谁又能拦得住咱一直喜欢呢。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日记 46</title>
+      <link href="/2022/07/14/diary/diary46/"/>
+      <url>/2022/07/14/diary/diary46/</url>
+      
+        <content type="html"><![CDATA[<p>一个人的宿舍，结束了...</p><hr><p>喏，舍友今天来了。</p><p>完了。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -40,7 +97,7 @@
       <link href="/2022/07/12/diary/diary44/"/>
       <url>/2022/07/12/diary/diary44/</url>
       
-        <content type="html"><![CDATA[<p>一个人的宿舍，第一天。</p><hr><p>西安站，凌晨 4 点。</p><p>凌晨 4 点的晚风，吹起来很是惬意。</p><p>不过呢，应同学要求，还是跟他们拼车去了，我总不可能跟女生一块走吧...</p><p>其实呢，我实在想不通，吹着晚风不好吗，7 块钱的地铁不香吗。非要坐着 23块钱的出租车，花着 10块钱，在网吧看着一个只会玩刀，鼠标都用不顺畅，一个玩着爆破，瞎丢闪光的两个菜鸟玩游戏，很有趣吗？</p><p>不过话说回来，8.8 一小时，起步 10元的网吧，我真没感觉有什么特别的，除了贵。</p><p>CZD说他去提车，我还以为他提汽车呢，结果提的是个电摩。搞什么，要不要这么不靠谱...</p><p>回到宿舍，第一时间打开电脑。好像没什么特别的啊，我以为自己会有多激动呢。</p><p>不过呢，我这整整齐齐的书桌是真的养眼，开心嘞。</p><p>晚上，称了称体重，59.9 kg。嗯，没走几天，就掉了 4斤，现在想想这学期刚来那会儿，67 kg...</p>]]></content>
+        <content type="html"><![CDATA[<p>一个人的宿舍，第一天。</p><p>我以为的我以为，只是我以为而已。</p><hr><p>西安站，凌晨 4 点。</p><p>凌晨 4 点的晚风，吹起来很是惬意。</p><p>不过呢，应同学要求，还是跟他们拼车去了，我总不可能跟女生一块走吧...</p><p>其实呢，我实在想不通，吹着晚风不好吗，7 块钱的地铁不香吗。非要坐着 23块钱的出租车，花着 10块钱，在网吧看着一个只会玩刀，鼠标都用不顺畅，一个玩着爆破，瞎丢闪光的两个菜鸟玩游戏，很有趣吗？</p><p>不过话说回来，8.8 一小时，起步 10元的网吧，我真没感觉有什么特别的，除了贵。</p><p>CZD说他去提车，我还以为他提汽车呢，结果提的是个电摩。搞什么，要不要这么不靠谱...</p><p>回到宿舍，第一时间打开电脑。好像没什么特别的啊，我以为自己会有多激动呢。</p><p>不过呢，我这整整齐齐的书桌是真的养眼，开心嘞。</p><p>晚上，称了称体重，59.9 kg。嗯，没走几天，就掉了 4斤，现在想想这学期刚来那会儿，67 kg...</p>]]></content>
       
       
       
@@ -287,7 +344,7 @@
       <link href="/2022/06/29/diary/diary31/"/>
       <url>/2022/06/29/diary/diary31/</url>
       
-        <content type="html"><![CDATA[<p>来自三天后的我...</p><hr><p>哦，我想起来了。</p><p>之前说要月底整理好现代笔记的计划泡汤了，不，泡水了...</p>]]></content>
+        <content type="html"><![CDATA[<p>来自三天后的我…</p><hr><p>哦，我想起来了。</p><p>之前说要月底整理好现代笔记的计划泡汤了，不，泡水了…</p>]]></content>
       
       
       
@@ -344,7 +401,7 @@
       <link href="/2022/06/26/diary/diary28/"/>
       <url>/2022/06/26/diary/diary28/</url>
       
-        <content type="html"><![CDATA[<p>又是平平淡淡的一天。</p><hr><p>之前不是买了新鼠标嘛，前几天到了后用了用，怎么说呢，不太会用...</p><p>鼠标侧面有两个按键，滚轮上部也有个按键，当时琢磨了半天也不知道这几个键干嘛的。</p><p>今天不知道那根筋抽风，突然想研究研究这几个按键，这到底干嘛用的。然后百度查了查，侧面是浏览器网页的前进后退（就是浏览器那两个箭头），而滚轮上部的是调节鼠标灵敏度的。</p><p>说实话，自己觉得这挺新奇的。</p><p>自己虽然不太喜欢用鼠标，但不得不提一句，网页后退那个键很实用，在某些场景下比键盘快的多。</p>]]></content>
+        <content type="html"><![CDATA[<p>又是平平淡淡的一天。</p><hr><p>之前不是买了新鼠标嘛，前几天到了后用了用，怎么说呢，不太会用…</p><p>鼠标侧面有两个按键，滚轮上部也有个按键，当时琢磨了半天也不知道这几个键干嘛的。</p><p>今天不知道那根筋抽风，突然想研究研究这几个按键，这到底干嘛用的。然后百度查了查，侧面是浏览器网页的前进后退（就是浏览器那两个箭头），而滚轮上部的是调节鼠标灵敏度的。</p><p>说实话，自己觉得这挺新奇的。</p><p>自己虽然不太喜欢用鼠标，但不得不提一句，网页后退那个键很实用，在某些场景下比键盘快的多。</p>]]></content>
       
       
       
@@ -1250,7 +1307,7 @@
       <link href="/2022/05/19/office/ppt/"/>
       <url>/2022/05/19/office/ppt/</url>
       
-        <content type="html"><![CDATA[<!-- vim-markdown-toc GFM --><ul><li><a href="#快捷键">快捷键</a></li><li><a href="#常用技巧">常用技巧</a></li><li><a href="#个人排版">个人排版</a></li></ul><!-- vim-markdown-toc --><h2 id="快捷键">快捷键</h2><table><thead><tr class="header"><th>Key</th><th>Description of function</th></tr></thead><tbody><tr class="odd"><td>F5</td><td>从第一页开始放映</td></tr><tr class="even"><td>Shift-F5</td><td>从当前页开始放映</td></tr><tr class="odd"><td>Ctrl-k</td><td>超链接</td></tr></tbody></table><h2 id="常用技巧">常用技巧</h2><ul><li><p><strong>将除标题幻灯片以外的幻灯片编号从 1 开始</strong></p><p>设计 - 幻灯片大小 - 编号从 0 开始</p></li><li><p><strong>更改主题/标题字体</strong></p><p>幻灯片母版设置</p></li><li><p><strong>在幻灯片底部中间显示幻灯片编号</strong></p><p>母版视图 - 右下方编号文本框 - 水平居中 - 内容居中对齐</p></li><li><p><strong>打印不显示图片或其他内容</strong></p><p>黑白模式 - 选中内容 - 不显示</p></li></ul><h2 id="个人排版">个人排版</h2><p>== 标题</p><table><thead><tr class="header"><th>Item</th><th>Demand</th><th>Present</th></tr></thead><tbody><tr class="odd"><td>一级标题</td><td>幼圆 28 磅 标准深蓝 加粗</td><td>一、</td></tr><tr class="even"><td>二级标题</td><td>幼圆 24 磅 标准黑色</td><td>1、</td></tr><tr class="odd"><td>三级标题</td><td>幼圆 22 磅 标准黑色</td><td>（1）</td></tr></tbody></table><p>== 文本</p><table><thead><tr class="header"><th>Item</th><th>Demand</th></tr></thead><tbody><tr class="odd"><td>字体</td><td>华文仿宋/Times New Roman</td></tr><tr class="even"><td>字号</td><td>小于当前幻灯片的最小标题的字体磅数</td></tr><tr class="odd"><td>强调内容</td><td>标准紫色</td></tr><tr class="even"><td>缩进</td><td>首行缩进 1.27cm</td></tr></tbody></table><p>== 图片</p><table><colgroup><col style="width: 24%"><col style="width: 75%"></colgroup><thead><tr class="header"><th>Item</th><th>Demand</th></tr></thead><tbody><tr class="odd"><td>图片格式</td><td>柔化边缘矩形</td></tr><tr class="even"><td>图片说明（题注）</td><td>华文仿宋/Times New Roman - 14 磅以下 - 底部- 文本居中</td></tr></tbody></table><p>== 表格 | Item | Demand ||----------|--------------------------------------------------------| |表格格式 | 浅色样式 1 - 强调 4 | | 题注 | 华文仿宋/Times New Roman - 14磅以下 - 底部 - 文本居中 |</p><p>== 公式 | Item | Demand | |------|---------------------------| | 格式| Word 公式 | | 字号 | 建议小于当前文本内容 2 磅 |</p>]]></content>
+        <content type="html"><![CDATA[<!-- vim-markdown-toc GFM --><ul><li><a href="#快捷键">快捷键</a></li><li><a href="#常用技巧">常用技巧</a></li><li><a href="#个人排版">个人排版</a></li></ul><!-- vim-markdown-toc --><h2 id="快捷键">快捷键</h2><table><thead><tr class="header"><th>Key</th><th>Description of function</th></tr></thead><tbody><tr class="odd"><td>F5</td><td>从第一页开始放映</td></tr><tr class="even"><td>Shift-F5</td><td>从当前页开始放映</td></tr><tr class="odd"><td>Ctrl-k</td><td>超链接</td></tr></tbody></table><h2 id="常用技巧">常用技巧</h2><ul><li><p><strong>将除标题幻灯片以外的幻灯片编号从 1 开始</strong></p><p>设计 - 幻灯片大小 - 编号从 0 开始</p></li><li><p><strong>更改主题/标题字体</strong></p><p>幻灯片母版设置</p></li><li><p><strong>在幻灯片底部中间显示幻灯片编号</strong></p><p>母版视图 - 右下方编号文本框 - 水平居中 - 内容居中对齐</p></li><li><p><strong>打印不显示图片或其他内容</strong></p><p>黑白模式 - 选中内容 - 不显示</p></li></ul><h2 id="个人排版">个人排版</h2><p>=== 标题</p><table><thead><tr class="header"><th>Item</th><th>Demand</th><th>Present</th></tr></thead><tbody><tr class="odd"><td>一级标题</td><td>幼圆 28 磅 标准深蓝 加粗</td><td>一、</td></tr><tr class="even"><td>二级标题</td><td>幼圆 24 磅 标准黑色</td><td>1、</td></tr><tr class="odd"><td>三级标题</td><td>幼圆 22 磅 标准黑色</td><td>（1）</td></tr></tbody></table><p>=== 文本</p><table><thead><tr class="header"><th>Item</th><th>Demand</th></tr></thead><tbody><tr class="odd"><td>字体</td><td>华文仿宋/Times New Roman</td></tr><tr class="even"><td>字号</td><td>小于当前幻灯片的最小标题的字体磅数</td></tr><tr class="odd"><td>强调内容</td><td>标准紫色</td></tr><tr class="even"><td>缩进</td><td>首行缩进 1.27cm</td></tr></tbody></table><p>=== 图片</p><table><colgroup><col style="width: 24%"><col style="width: 75%"></colgroup><thead><tr class="header"><th>Item</th><th>Demand</th></tr></thead><tbody><tr class="odd"><td>图片格式</td><td>柔化边缘矩形</td></tr><tr class="even"><td>图片说明（题注）</td><td>华文仿宋/Times New Roman - 14 磅以下 - 底部- 文本居中</td></tr></tbody></table><p>== 表格</p><table><thead><tr class="header"><th>Item</th><th>Demand</th></tr></thead><tbody><tr class="odd"><td>表格格式</td><td>浅色样式 1 - 强调 4</td></tr><tr class="even"><td>题注</td><td>华文仿宋/Times New Roman - 14 磅以下 - 底部 - 文本居中</td></tr></tbody></table><p>=== 公式</p><table><thead><tr class="header"><th>Item</th><th>Demand</th></tr></thead><tbody><tr class="odd"><td>格式</td><td>Word 公式</td></tr><tr class="even"><td>字号</td><td>建议小于当前文本内容 2 磅</td></tr></tbody></table>]]></content>
       
       
       
